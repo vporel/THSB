@@ -72,7 +72,7 @@
 <body>
     <div id="page">
         <header>
-            <h2>Installation | THBS</h2>
+            <h2>Etape <?= $installation["etape"] ?> | Installation | THBS</h2>
             <p>Town Hall Site Builder</p>
         </header>
         <?php if(isset($message)){ ?>
