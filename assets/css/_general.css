@@ -1,0 +1,58 @@
+/* Boutons */
+.btn{
+    border:0;
+    padding:7px 10px;
+    font-size:17px;
+    transition: all .2s ease;
+}
+.btn-primary{
+    background:var(--couleur-primaire);
+    color:white;
+}
+.btn-primary:hover{
+    background:var(--couleur-primaire-claire);
+}
+
+.btns{
+    text-align:right;
+    margin-top:5px;
+}
+
+/* Formulaires */
+form{
+    padding:10px;
+}
+form span{
+    display:block;
+}
+form label{
+    display:block;
+    margin-top:10px;
+    margin-bottom:5px;
+    font-size:14px;
+}
+form input[type=text],
+form input[type=password]{
+    display: block;
+    width:100%;
+    border:1px solid lightgray;
+    border-radius:5px;
+    height:30px;
+}
+
+form input:hover,
+form input:focus{
+    border-color:var(--couleur-primaire);
+    color : var(--couleur-primaire);
+}
+
+/* Alertes */
+.alert{
+    padding:5px;
+    border: 1px solid;
+    border-radius:5px;
+}
+.alert-warning{
+    background:rgba(255, 100, 0, .3);
+    color:rgba(255, 100, 0, 1);
+}
