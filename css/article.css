@@ -1,9 +1,0 @@
-.article-title{
-	color: var(--primary-color);
-	border-right: 15px solid var(--primary-color);
-	padding: 5px 0;
-}
-
-.section p, .section ul{
-	padding-left: 20px;
-}
