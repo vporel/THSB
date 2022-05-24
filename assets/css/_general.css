@@ -48,7 +48,7 @@ form input:focus{
 
 /* Alertes */
 .alert{
-    padding:5px;
+    padding:15px;
     border: 1px solid;
     border-radius:5px;
 }

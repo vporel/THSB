@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Les produits à consommer cette saison</title>
+
+	<link rel="stylesheet" type="text/css" href="css/main.css"/>
+	<link rel="stylesheet" type="text/css" href="css/article.css"/>
+
+</head>
+<body>
+	<!-- HEADER -->
+	<div id="before-nav">
+		<img src="images/before-nav.jpg">
+		<h1>Site Commune X</h1>
+		<div id="overlay"></div>
+	</div>
+	<nav id="navbar">
+		<a href="index.html">Accueil</a>
+		<a href="activités_agricoles.html" class="active">Agriculture</a>
+		<a href="activités_pastorales.html">Elevage</a>
+		<a href="contact.html">Contactez-nous</a>
+		<form method="get" id="search-form">
+			<input type="text" name="search-text"/>
+			<input type="submit" value="Rechercher"/>
+		</form>
+	</nav>
+	<div id="popup-image">
+		<button onclick="document.querySelector('#popup-image').style.display = 'none';">&times;</button>
+		<img class="image"/>
+	</div>
+	<section id="content">
+		<main>
+			
+			<section class="section">
+				<h1 class="article-title">Les produits à consommer cette saison <span class="badge">31 mars 2022</span></h1>
+				<div class="images">
+					<img src="images/agri1.jpg"/>
+					<img src="images/agri2.jpg"/>
+					<img src="images/agri3.jpg"/>
+					<img src="images/agri6.jpg"/>
+				</div>
+				<br><i><strong>Le printemps marque le début d’un nouveau cycle pour l’agriculture. Les jours et les températures augmentent. Des fruits et légumes printaniers arrivent à maturité et accompagnent viandes, poissons et fromages du moment. Manger de saison, c’est soutenir l’agriculture de notre pays.</strong></i><br>
+				<br><strong>Légumes</strong>
+				<p> 
+					Plus de 50 variétés de radis sont cultivées en France : rose, rouge, allongé, rond... Produit de saison, le radis se déguste cru ou cuit. Le saviez-vous ? Les feuilles du radis sont comestibles ! Une fois cuites, elles peuvent être servies en accompagnement ou même en soupe. En France, 46 089 tonnes de radis ont été cultivées en 2020.
+					<br><br>
+					Le persil, plat ou frisé, est une plante aromatique qui apporte fraîcheur et parfum à de très nombreuses préparations. Le persil était déjà consommé par les Égyptiens et les Romains. Le persil est une plante de climat tempéré – mais sensible au froid – qui apprécie les sols riches en humus. En 2020, 19 345 tonnes de persil ont été récoltées en France.
+					<br><br>
+					L’asperge peut être accompagnée d’une vinaigrette ou être cuisinée en gratin, en velouté… En France, l’asperge du Blayais IGP et l’asperge des sables des Landes IGP ont reçu l’Indication géographique protégée respectivement en 2015 et 2005. Au total, 20 258 tonnes d’asperges ont été récoltées en 2020.
+				</p>
+				<strong>Poissons</strong>
+				<p>
+					Le maquereau est un poisson de saison. Il se rapproche au printemps des côtes françaises pour y trouver une nourriture plus abondante. Ce poisson migrateur se déguste cuit à la moutarde, en matelote ou simplement grillé, par exemple au barbecue. Il est également possible de le consommer en tartare. En 2020, 23 300 tonnes de maquereau ont été vendues sur les étals français.
+					<br><br>
+					Le merlan vit principalement dans les eaux de l’Atlantique nord et de la mer du Nord. Ce poisson carnivore est cousin du lieu. Le merlan se cuisine poché au court-bouillon, grillé entier à la poêle ou au four, en papillote accompagné de légumes de saison... En France, 10 400 tonnes de merlan ont été vendues en 2020.
+				</p>
+				<strong>Viande</strong>
+				<p>
+					Si l’on trouve de l’agneau en toute saison, cela reste essentiellement une viande de printemps. L’agneau est le petit mâle de la brebis et du bélier. Sa viande est appelée « viande d’agneau » jusqu’à l’âge d’un an. Après, elle devient de la « viande de mouton ».
+					<br><br>
+					En France, les agneaux de pré-salé proviennent de la baie de Somme et de la baie du Mont Saint-Michel, ce sont les seuls à disposer d’une Appellation d’origine protégée (AOP), depuis 2013. D’autres variétés d’agneaux disposent d’un signe de qualité, comme les agneaux du Limousin IGP ou encore l’agneau de lait des Pyrénées Label rouge IGP.
+
+					La production ovine est l’une des plus diversifiées en termes de régions et de types de production, avec plus de quarante races répertoriées et classées en cinq catégories : précoces, d’herbage, rustiques, mérinos, laitières. 
+				</p>
+				<strong>Fruits</strong>
+				<p>
+					Le kiwi de l'Adour fait son apparition en France, entre Pau et Bayonne, il y a une quarantaine d’années. Il obtient le Label rouge en 1992 et une Indication géographique protégée (IGP) en 2009. Près de 350 producteurs cultivent le kiwi de l’Adour. Auparavant connu sous le nom de « groseille de Chine », il a été rebaptisé par la Nouvelle-Zélande (principal pays producteur de ce fruit) pendant la Guerre froide. Il fait désormais référence à l’oiseau emblématique néozélandais : le kiwi.
+					<br><br>
+					La rhubarbe est originaire d’Asie et a été importée en Europe pour ses vertus médicinales. La production et la consommation en France ne débutent qu’au XIXe siècle. Peu calorique, la rhubarbe se déguste en compote, en tarte et entre dans la composition de nombreuses recettes. Le saviez-vous ? Le nom de la rhubarbe vient du latin « reuburbarum » qui signifie « racine barbare ».
+					<br><br>
+					La mangue des Antilles, avec sa chair jaune-orangée et son délicat goût sucré, rappelle l’arrivée des beaux jours. Originaire d'Inde, la mangue est cultivée notamment dans les Outre-mer français, où 4 700 tonnes de mangues ont été produites en 2020. Il existe plus de 1 000 espèces de mangues dans le monde.
+				</p>
+			</section>
+			
+		</main>
+		<aside>
+
+			<h2>Nos produits</h2>
+			<section>
+				<article>
+					<h4>Naturen 08Kg</h4>
+					<span>Engrais universel super organique</span>
+					<img src="images/engrais2.jpg">
+					<a class="order" href="#">Commander</a>
+				</article>
+				<article>
+					<h4>Engrais à libération lente</h4>
+					<span>Pour gazon</span>
+					<img src="images/engrais1.jpg">
+					<a class="order" href="#">Commander</a>
+				</article>
+			</section>
+		</aside>
+	</section>
+	<footer>
+		<h4>Made by : NKOUANANG KEPSEU VIVIAN POREL (20U2668)</h4>
+	</footer>
+	<script type="text/javascript">
+		document.querySelectorAll(".images img").forEach(image => {
+			image.onclick = () => {
+				document.querySelector("#popup-image").style.display="block";
+				document.querySelector("#popup-image img").src=image.src;
+			};
+		});
+	</script>
+</body>
+</html>
