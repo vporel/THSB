@@ -1,4 +1,15 @@
 <!-- HEADER -->
+
+<?php
+    if(isAdminConnected()){
+        $adminInfos = getConnectedAdminInfos();
+?>
+    <div id="header-admin-infos">
+        Administrateur | <?= $adminInfos["login"] ?>
+        <a href="deconnexion.php">Quitter</a>
+    </div>
+<?php } ?>
+
 <div id="before-nav">
     <h1><?= "Mairie de ".$_MAIRIE["nom"]; ?></h1>
 </div>

@@ -3,6 +3,11 @@
  * Contient des éléments qui seront utilisés par les différentes pages comme le nom de la mairie
  */
 session_start();
-require __DIR__."/../configuration/chemins.php";
+const ROOT = __DIR__."/..";
+require_once ROOT."/configuration/config.php";
+require_once ROOT."/biblio/biblio.php";
 
-$_MAIRIE = json_decode(file_get_contents(CONFIG_MAIRIE), true);
+if($_INSTALLATION["etape"] < 5){
+    header("Location:installation");
+    exit();
+}
