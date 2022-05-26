@@ -1,13 +1,13 @@
 
 <?php require "./includes/head.php"; ?>
-<?php $_TITLE = "Lieux touristiques | ".$_MAIRIE["nom"]; ?>
+<?php $_TITLE = "Publicités | ".$_MAIRIE["nom"]; ?>
 
 <?php ob_start(); ?>
 <main>
 	
 	<section class="section">
 		<h2 class="title"></h2>
-		<!-- Lieux touristiques ici -->
+		<!-- Publicités ici -->
 	</section>
 </main>
 <aside>

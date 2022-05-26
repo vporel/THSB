@@ -32,27 +32,21 @@
 	</section>
 </main>
 <aside>
-	<h2>Derniers articles</h2>
+	<h2>Dernières annonces</h2>
 	<section>
-		<h3>Agriculture</h3>
+		<h3></h3>
 		<article>
-			<h4>Les produits à consommer durant cette saison</h4>
-			<span>31 mars 2022</span>
-			<p>
-				Cette saison marque le début d'un nouveau cycle pour l'agriculture. LEs jours et les températures augmentent.
-				Certains fruits et légumes arrivent à maturité et accompagnent viandes, poissons et fromages du moment.<br>
-				Manger de saison c'est soutenir l'agriculture camerounaise.
-			<a class="see-more" href="produits_a_consommer.html">En savoir plus</a>
-			</p>
+            <h4>Titre</h4>
+			<span>1<sup>er</sup> avril 2022</span>
+			
 		</article>
-		<article>
 		<div class="see-more-layout"><a class="see-more btn btn-primary" href="activités_agricoles.html">Voir plus</a></div>
 	</section>
+    <h2>Publicités</h2>
 	<section>
-		<h3>Elevage</h3>
+		<h3></h3>
 		<article>
-			<h4>L'élevage des pigeons</h4>
-			<span>1<sup>er</sup> avril 2022</span>
+			<h4></h4>
 			<p>
 				Le pigeon est un oiseau dont le régime alimentaire est essentiellement granivore mais il peut aussi manger de petits insectes, vers de terre et de la verdure.
 				<a class="see-more" href="elevage_pigeons.html">En savoir plus</a>
