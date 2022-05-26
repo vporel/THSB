@@ -16,11 +16,20 @@
 <nav id="navbar">
     <div id="navbar-toggler">+</div>
     <div id="navbar-content">
-        <a href="index.html" class="active">Accueil</a>
-        <a href="">Projets</a>
-        <a href="">Activites</a>
-        <a href="">Annonces</a>
-        <a href="">Lieux touristiques</a>
-        <a href="">Espace PUB</a>
+        <a href="index.php" class="nav-link active">Accueil</a>
+        <?php 
+            foreach($_FONCTIONNALITES_DISPONIBLES as $index => $fonct){ 
+                if(in_array($index, $_MAIRIE["fonctionnalites"])){
+            ?>
+            <a href="<?= $fonct["nom"] ?>.php" class="nav-link"><?= $fonct["label"] ?></a>
+        <?php 
+                }
+            } 
+        ?>
+        <?php if(isAdminConnected()){ ?>
+            <a href="admin/choix-fonctionnalites.php" class="pos-absolute admin-element btn btn-admin-update" style="right:5px;">
+                Modifier
+            </a>
+        <?php } ?>
     </div>
 </nav>

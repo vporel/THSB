@@ -1,0 +1,12 @@
+#header-admin-infos{
+	position:fixed;
+	right: 0;
+	bottom:0;
+	padding:10px;
+	background:white;
+	color:black;
+	border-radius: 10px 0 0 0;
+    box-shadow: 0 0 5px black;
+	z-index:10;
+}
+

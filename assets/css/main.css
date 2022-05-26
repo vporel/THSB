@@ -1,5 +1,6 @@
 @import "./_variables.css";
 @import "./_general.css";
+@import "./_admin-elements.css";
 
 
 body{
@@ -7,17 +8,6 @@ body{
 	padding: 0;
 	margin: 0;
 	color: rgb(50,50,50);
-}
-
-#header-admin-infos{
-	position:fixed;
-	right: 0;
-	top:0;
-	padding:5px;
-	background:white;
-	color:gray;
-	border-radius: 0 0 0 10px;
-	z-index:20;
 }
 
 #before-nav{
@@ -75,7 +65,7 @@ body{
 	height: 100%;
 }
 
-#navbar a{
+#navbar .nav-link{
 	margin: 0 10px;
 	text-decoration: none;
 	color: inherit;
@@ -88,18 +78,12 @@ body{
 
 
 
-#navbar a:first-child{
+#navbar .nav-link:first-child{
 	margin-left: 40px;
 }
-#navbar a:hover, #navbar a.active{
+#navbar .nav-link:hover, #navbar .nav-link.active{
 	color: var(--couleur-primaire);
 	box-shadow: 0 -3px 0 var(--couleur-primaire) inset;
-}
-
-
-#navbar #search-form{
-	position: absolute;
-	right: 10px;
 }
 
 #content{
@@ -134,9 +118,10 @@ aside h2{
 	background: var(--couleur-primaire);
 	padding: 5px;
 	color: white;
+	font-size:18px;
 }
 aside>section{
-	margin-top: 10px;
+	margin: 10px 0;
 	background: rgb(230,230,230);
 	padding: 5px;
 	padding-bottom: 5px;
@@ -301,7 +286,7 @@ input[type="button"]:hover, input[type="submit"]:hover, button:hover{
 	align-items: flex-start;
 }
 .images img{
-	width: 23%;
+	width: 50%;
 	margin-top: 10px;
 	height: auto;
 	transition: all .3s ease;

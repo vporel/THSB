@@ -5,6 +5,11 @@ class Property{
      */
     private $name;
 
+     /**
+     * @var string
+     */
+    private $label;
+
     /**
      * @var string
      */
@@ -26,24 +31,25 @@ class Property{
     private $validationRules;
 
     /**
-     * @param string $name
+     * @param string $name Le nom de la propriété tel qu'il doit être dans la base de données
+     * @param string $label Le nom courant de la propriété, c'est ce nom qui sera affiché dans les formulaires
      * @param string $type
      * @param int $maxLength Si égal à null, le champ est d'une longueur non précisée (Ex: champ de type text)
      * @param bool $nullable
      * @param array $validationRules
      */
-    public function __construct(string $name, string $type, int $maxLength = null, bool $nullable = false, array $validationRules = []){
+    public function __construct(string $name, string $label, string $type, int $maxLength = null, bool $nullable = false, array $validationRules = []){
         $this->name = $name;
+        $this->label = $label;
         $this->nullable = $nullable;
         $type = strtolower($type);
-        if(in_array($type, ["int", "varchar", "text", "longtext", "boolean"])){
+        if(in_array($type, ["int", "varchar", "text", "longtext", "boolean", "date"])){
             $this->type = $type;
         }else{
             throw new InvalidArgumentException("Le type $type n'est pas reconnu");
         } 
-        if($type == "varchar" && $maxLength != null && $maxLength > 0){
-            $this->maxLength = $maxLength;
-        }else{
+        $this->maxLength = $maxLength;
+        if($type == "varchar" && ($maxLength == null || $maxLength < 1)){
             throw new InvalidArgumentException("Une longueur maximale doit être renseignée pour le type varchar");
         }
         $this->validationRules = $validationRules;
@@ -97,5 +103,15 @@ class Property{
     public function getType()
     {
         return $this->type;
+    }
+
+    /**
+     * Get the value of label
+     *
+     * @return  string
+     */ 
+    public function getLabel()
+    {
+        return $this->label;
     }
 }
