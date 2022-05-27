@@ -5,7 +5,8 @@
 <nav id="navbar">
     <div id="navbar-toggler">+</div>
     <div id="navbar-content">
-        <a href="index.html" class="active">Accueil</a>
+        <a href="index.php" class="active">Accueil</a>
+        <a href="personnel.php">Personnel</a>
         <a href="">Projets</a>
         <a href="">Activites</a>
         <a href="">Annonces</a>

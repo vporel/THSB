@@ -5,30 +5,36 @@
 <main>
 	
 	<section class="section">
-		<h2 class="title">Elevage <span class="badge">La valorisation des produits de notre commune</span></h2>
+		<h3 style="margin-top: 100px;margin-left: 70px;color: black;font-size: 50px;animation: titleShow 1s forwards;text-shadow: 1px 1px 2px black;z-index: 5;"> 
+			BIENVENUE SUR LA MAIRIE DE DOUALA I 
+		</h3>
+		<h2 class="title">Historique de la mairie <span class="badge">La valorisation des produits de notre commune</span></h2>
 		<p>
-			Les systèmes d’élevage dans la commune sont divisés en trois grandes catégories:
-			<ul>
-				<li>
-					Les pasteurs transhumants qui possèdent de grands troupeaux de bétail. Ils pratiquent le système extensif d’élevage, déplacent les animaux d’une région à l’autre en fonction de la disponibilité des pâturages. Pendant les périodes sèches, tous les animaux, sauf les plus jeunes sont déplacés vers des zones de transhumance vers le Noun, Mbam et Inoubou, Sanaga, Nde (Ngnokong) ;
-				</li>
-				<li>
-					Les agriculteurs sédentaires, qui ont l’élevage comme activité secondaire à l’agriculture. Ce groupe dans la plupart des cas élèvent les porcs, les chèvres, les moutons et les volailles dans leurs arrière-cours comme source alternative de revenu. Certains dans ce groupe pratiquent le système intensif pendant que les autres laissent les animaux en divagation
-				</li>
-				<li>
-					Les agropasteurs semi-sédentaires qui se trouvent entre les catégories I et II.
-				</li>
-			</ul>
-			Toutefois, la pratique d’élevage la plus courante est le système semi-intensif pratiqué par environ 50% des villages.
-			<br><a href="activités_pastorales.html">Aller à la page</a>
+			La commune de Douala a ete creee en 1987 , d'apres la loi numero 87-15 du 15 juillet 1987 , portant creation des communautes urbaines au cameeroun.elle s'etend sur 1309 ha,limitee a l'ouest par le fleuve Wouri et le Mbanya qui le separe de l'arrondissement de Douala 5eme.
 		</p>
-		<div class="images">
-			<img src="images/section2/1.jpg"/>
-			<img src="images/section2/2.jpg"/>
-			<img src="images/section2/3.jpg"/>
-			<img src="images/section2/4.jpg"/>
-			<img src="images/section2/5.jpg"/>
-		</div>
+		<h2 class="title"> Conseil Municipal</h2>
+		<p>
+			le conseil municipal de la mairie de Douala definit la politique de l'organisation  et l'orientation de son action. Les membres du CE , qui sont de hauts responsables de la mairie,apportent leur longue experience et leur savoir afin de nous conseiller et de nous guider. il est compose de L'Executif Municipal qui comprend (05) memebres a savoir:
+				<ul>
+					<li> Le Maire </li>
+					<li> Les (04) adjoints </li>
+					
+				</ul>
+			
+
+		</p>
+
+
+		<h2 class="title"> Missions de la mairie</h2>
+		<p>
+			la mairie de Douala gere, sous tutelle de L'Etat, les affaires locales en vue du developpement economique,social et culturel de ses populations.En matiere de transport terrestre la mairie de Douala est chargee de l'etude , et de la gestion des programmes d'entretiendes infrastructures et des reseaux de moindre envergure(car pour ceux plus important, ce sont les ministeres de la ville ou des travaux publics qui s'en occupent); la commune de Douala s'occupe egalement de la gestion du domaine public routier, en relation avec les services concernes. A cet effet,elle dispose d'un service "Circulation et des deplacements urbains " charge:
+			<ul>
+				<li> de l'etude et realisation des amenagements et des equipements necessaires a l'application du plan de circulation;</li>
+				<li> d'assurer la liaison avec les operateurs du transport.</li>
+			</ul>
+			Au quotidien, la mairie de Douala veille au respect des infrastructures et des amenagements installes sur la voie publique afin de maintenir un developpement des deplacements adaptes pour une mobilite, mieux pour une urbanisation plus simplifiee et plus organisee de nos villes.
+		</p>
+		
 	</section>
 </main>
 <aside>
