@@ -25,6 +25,19 @@
             try{
                 $bdd = new PDO("mysql:host=$hote;dbname=$nom", $nomUtilisateur, $motDePasse);
                 //Création des tables
+                try{
+                    createTables($bdd);
+                    $_MAIRIE["base-de-donnees"] = [
+                        "nom" => $nom,
+                        "hote" => $hote,
+                        "nom-utilisateur" => $nomUtilisateur,
+                        "mot-de-passe" => $motDePasse,
+                    ];
+                    $_INSTALLATION["etape"] = 3; // P&ssage à l'étape 3
+                }catch(PDOException $e){
+                    echo $e->getMessage();
+                    $message = "Echec de la création des tables dans la base de données";
+                }
                 
             }catch(PDOException $e){
                 if($e->getCode() == 2002){
@@ -38,20 +51,6 @@
                 }else{
                     $message = "Echec de la connexion à la base $nom. Vérifiez les informations entrées";
                 }
-            }
-
-            try{
-                createTables($bdd);
-                $_MAIRIE["base-de-donnees"] = [
-                    "nom" => $nom,
-                    "hote" => $hote,
-                    "nom-utilisateur" => $nomUtilisateur,
-                    "mot-de-passe" => $motDePasse,
-                ];
-                $_INSTALLATION["etape"] = 3; // P&ssage à l'étape 3
-            }catch(PDOException $e){
-                echo $e->getMessage();
-                $message = "Echec de la création des tables dans la base de données";
             }
             
         }else{

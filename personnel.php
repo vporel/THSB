@@ -1,6 +1,13 @@
 <?php require "./includes/head.php"; ?>
 <?php $_TITLE = "Personnel | Mairie de ".$_MAIRIE["nom"]; ?>
 
+
+<?php ob_start(); ?>
+    
+    <style>
+
+    </style>
+<?php $_STYLES= ob_get_clean(); ?>
 <?php ob_start(); ?>
 <main>
 <div style="display: flex; margin:30px">

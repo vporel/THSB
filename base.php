@@ -7,6 +7,7 @@
 
 	<link rel="stylesheet" type="text/css" href="assets/css/main.css"/>
 	<script src="assets/js/biblio.js"></script>
+	<?= $_STYLES ?? "" ?>
 </head>
 <body>
 	<!-- Entete -->
@@ -24,5 +25,6 @@
 		<?php include "includes/footer.php"; ?>
 	</footer>
 	<script type="text/javascript" src="assets/js/main.js"></script>
+	<?= $_SCRIPTS ?? "" ?>
 </body>
 </html>
