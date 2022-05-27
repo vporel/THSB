@@ -14,8 +14,9 @@ body{
     background:white;
     width:60%;
     left:20%;
-    top:7%;
-    height:80%;
+    top:5%;
+    height:90%;
+    overflow: auto;
     border-radius:20px;
 }
 

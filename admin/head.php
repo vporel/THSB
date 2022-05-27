@@ -8,6 +8,6 @@ require_once ROOT."/configuration/config.php";
 require_once ROOT."/biblio/biblio.php";
 
 if($_INSTALLATION["etape"] < 5){
-    header("Location:installation");
+    header("Location:../installation");
     exit();
 }
