@@ -5,13 +5,18 @@
 <main>
 	
 	<section class="section">
-		<h3 style="margin-top: 100px;margin-left: 70px;color: black;font-size: 50px;animation: titleShow 1s forwards;text-shadow: 1px 1px 2px black;z-index: 5;"> 
-			BIENVENUE SUR LA MAIRIE DE DOUALA I 
+		<h3 style="margin-top: 100px;margin-left: 70px;color: black;font-size: 50px;animation: titleShow 1s forwards;"> 
+			BIENVENUE SUR LA MAIRIE DE <?php echo $_MAIRIE["nom"]; ?>
 		</h3>
-		<h2 class="title">Historique de la mairie <span class="badge">La valorisation des produits de notre commune</span></h2>
-		<p>
-			La commune de Douala a ete creee en 1987 , d'apres la loi numero 87-15 du 15 juillet 1987 , portant creation des communautes urbaines au cameeroun.elle s'etend sur 1309 ha,limitee a l'ouest par le fleuve Wouri et le Mbanya qui le separe de l'arrondissement de Douala 5eme.
-		</p>
+		<h2 class="title">
+			Historique de la mairie 
+			<?php if(isAdminConnected()){ ?>
+				<a href="admin/modifier-historique.php" class="d-inline-block btn btn-admin-update">
+					Modifier
+				</a>
+				
+			<?php } ?>
+		</h2>
 		<h2 class="title"> Conseil Municipal</h2>
 		<p>
 			le conseil municipal de la mairie de Douala definit la politique de l'organisation  et l'orientation de son action. Les membres du CE , qui sont de hauts responsables de la mairie,apportent leur longue experience et leur savoir afin de nous conseiller et de nous guider. il est compose de L'Executif Municipal qui comprend (05) memebres a savoir:
