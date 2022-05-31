@@ -25,6 +25,19 @@
             try{
                 $bdd = new PDO("mysql:host=$hote;dbname=$nom", $nomUtilisateur, $motDePasse);
                 //Création des tables
+                try{
+                    createTables($bdd);
+                    $_MAIRIE["base-de-donnees"] = [
+                        "nom" => $nom,
+                        "hote" => $hote,
+                        "nom-utilisateur" => $nomUtilisateur,
+                        "mot-de-passe" => $motDePasse,
+                    ];
+                    $_INSTALLATION["etape"] = 3; // P&ssage à l'étape 3
+                }catch(PDOException $e){
+                    echo $e->getMessage();
+                    $message = "Echec de la création des tables dans la base de données";
+                }
                 
             }catch(PDOException $e){
                 if($e->getCode() == 2002){
@@ -80,13 +93,14 @@
             $message = "Vous devez remplir tous les champs";
         }
     }
-    if($_INSTALLATION["etape"] == 5){
-        header("Location:../index.php"); // Renvoie vers la page du site
-    }
-
     //Enregistrement de smodifications faites dans les fichiers de configuration
     file_put_contents(CONFIG_INSTALLATION, json_encode($_INSTALLATION));
     file_put_contents(CONFIG_MAIRIE, json_encode($_MAIRIE));
+    if($_INSTALLATION["etape"] == 5){
+        header("Location:../index.php"); // Renvoie vers la page du site
+        exit();
+    }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
