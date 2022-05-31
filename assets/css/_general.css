@@ -11,7 +11,7 @@
     color:white;
 }
 .btn-primary:hover{
-    background:var(--couleur-primaire-claire);
+    background:var(--couleur-primaire);
 }
 
 .btn-bad{

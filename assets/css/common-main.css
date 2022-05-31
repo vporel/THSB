@@ -116,3 +116,15 @@ aside img{
 	transform: scale(1.05);
 	z-index: 10;
 }
+
+#back-to-top{
+	position: fixed;
+	display: block;
+	text-decoration: none;
+	right: 10px;
+	bottom: 10px;
+	background: var(--couleur-primaire);
+	padding: 12px 12px 5px 12px;
+	border-radius: 50%;
+	color: white;
+}

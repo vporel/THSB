@@ -19,7 +19,7 @@ class Contenu extends ElementSchema{
         $contenuProperties = [];
         $contenuProperties[] = new Property("nom","Nom", "varchar", 50, false);
         $contenuProperties[] = new Property("description","Description", "text", null, false);
-        $contenuProperties[] = new FileProperty("image", "Image",false, $imagesFolder, ["pdf", "jpg", "jpeg", "png"]);
+        $contenuProperties[] = new FileProperty("image", "Image", true, $imagesFolder, ["pdf", "jpg", "jpeg", "png"]);
         parent::__construct($table, array_merge($contenuProperties, $properties), $page,$validationRules);
     }
 

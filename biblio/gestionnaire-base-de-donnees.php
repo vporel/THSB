@@ -22,7 +22,7 @@ function connectDB():?PDO
             //Création des tables
             
         }catch(PDOException $e){
-            //Do noting
+            echo $e->getMessage();
         }
     }
     return $_BDD;

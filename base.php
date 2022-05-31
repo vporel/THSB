@@ -6,13 +6,18 @@
 	<title><?= $_TITLE ?></title>
 
 	<?php
-		$themeNb = $_MAIRIE["theme"] ?? null;
-		if($themeNb == null || (int) $themeNb < 0 || (int) $themeNb > $_NB_THEMES){
+		$numeroTheme = $_THEME["numero"] ?? $_THEME_DEFAUT["numero"];
+		if($numeroTheme == null || (int) $numeroTheme < 0 || (int) $numeroTheme > $_NB_THEMES){
 			//Pour l(instant il n'a que 2 themes)
-			$themeNb = 1;//Theme par défaut
+			$numeroTheme = 1;//Theme par défaut
 		}
 	?>	
-	<link rel="stylesheet" type="text/css" href="assets/css/theme-<?= $themeNb ?>.css"/>
+	<style type="text/css">
+		:root{
+			--couleur-primaire:<?= $_THEME["couleur-site"] ?? $_THEME_DEFAUT["couleur-site"]; ?>	;
+		}
+	</style>
+	<link rel="stylesheet" type="text/css" href="assets/css/theme-<?= $numeroTheme ?>.css"/>
 	<script src="assets/js/biblio.js"></script>
 	<?= $_STYLES ?? "" ?>
 </head>
@@ -33,6 +38,7 @@
 			<?php include "includes/aside.php"; ?>
 		</aside>
 	</section>
+	<a href="#" id="back-to-top">^</a>
 	<footer>
 		<?php include "includes/footer.php"; ?>
 	</footer>

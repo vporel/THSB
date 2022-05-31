@@ -13,7 +13,7 @@
     if(isset($_POST["info-valeur"])){ // etape3.php
         $infoValeur = $_POST["info-valeur"];
         $_MAIRIE[$infoType] = $infoValeur;
-        file_put_contents(CONFIG_MAIRIE, json_encode($_MAIRIE));
+        file_put_contents(FICHIER_CONFIG_MAIRIE, json_encode($_MAIRIE));
         header("Location:../index.php");
         exit();
     }

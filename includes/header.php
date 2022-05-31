@@ -6,8 +6,8 @@
 ?>
     <div id="header-admin-infos">
         Administrateur | <?= $adminInfos["login"] ?> - 
-        <a href="admin/modifier-info-mairie.php?infoType=theme">Modifier le thème</a> - 
-        <a href="deconnexion.php">Quitter</a>
+        <a href="admin/modifier-theme.php">Modifier le thème</a> - 
+        <a href="deconnexion.php">Passer en utilisateur</a>
     </div>
 <?php } ?>
 
