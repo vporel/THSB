@@ -44,5 +44,9 @@
 <script type="text/javascript">
     let splitURL = window.location.href.split("/");
     let page = splitURL[splitURL.length-1];
-    $('#navbar-content a[href="'+page+'"]').classList.add("active");
+    let $linkEl = $('#navbar-content a[href="'+page+'"]');
+    if($linkEl != null)
+        $linkEl.classList.add("active");
+    else
+        $('#navbar-content a[href="index.php"]').classList.add("active");
 </script>

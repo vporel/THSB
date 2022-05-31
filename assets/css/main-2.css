@@ -68,24 +68,7 @@
 	color: var(--couleur-primaire);
 	box-shadow: 0 -3px 0 var(--couleur-primaire) inset;
 }
-#navbar .nav-link.active{
-	animation:activeNavLink .5s linear infinite;
-}
-@keyframes activeNavLink {
-	0%{
-		box-shadow: 0 -3px 0 var(--couleur-primaire) inset;
-		transform: scale(1);
-	}
-	25%{
-		box-shadow: 0 -1px 0 var(--couleur-primaire) inset;
-		transform: scale(0.98);
-	}
-	75%{
-		box-shadow: 0 -5px 0 var(--couleur-primaire) inset;
-		transform: scale(1.01);
-	}
-	
-}
+
 
 
 aside h2{

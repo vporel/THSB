@@ -4,6 +4,20 @@
 
     $_MAIRIE = json_decode(file_get_contents(CONFIG_MAIRIE), true);
     $_INSTALLATION = json_decode(file_get_contents(CONFIG_INSTALLATION), true);
+    if(!is_writable(CONFIG_MAIRIE) || !is_writable(CONFIG_INSTALLATION)){
+        echo "
+            <h2>Impossible d'accéder aux fichiers de configuration. Permissions requises</h2>
+            <h4>Suivez les étapes ci-après : </h4>
+            <h5>Sur linux (ubuntu) : </h5>
+            <ul>
+                <li>Ouvrez le terminal dans le dossier du projet (THSB par défaut)</li>
+                <li>Exécutez la commande : sudo chmod -R 777 . (ne pas oublier le point de la fin)</li>
+                <li>Relancez le site</li>
+            </ul>
+
+        ";
+        exit();
+    }
 
     $_FONCTIONNALITES_DISPONIBLES = [
         1 => [

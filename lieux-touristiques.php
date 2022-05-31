@@ -12,6 +12,11 @@
 	</a>
 <?php } ?>
 <?php if(count($lieux) > 0){ ?>
+	<style>
+		.title{
+			
+		}	
+	</style>
 	<?php foreach($lieux as $lieu){ ?>
 		<section class="section">
 			<h2 class="title">
