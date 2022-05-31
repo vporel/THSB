@@ -9,7 +9,7 @@
 			BIENVENUE SUR LA MAIRIE DE <?php echo $_MAIRIE["nom"]; ?>
 		</h3>
 		<h2 class="title">
-			Historique de la mairie 
+			Historique de la mairie  
 			<?php if(isAdminConnected()){ ?>
 				<a href="admin/modifier-historique.php" class="d-inline-block btn btn-admin-update">
 					Modifier

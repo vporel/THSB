@@ -79,13 +79,14 @@
             $message = "Vous devez remplir tous les champs";
         }
     }
-    if($_INSTALLATION["etape"] == 5){
-        header("Location:../index.php"); // Renvoie vers la page du site
-    }
-
     //Enregistrement de smodifications faites dans les fichiers de configuration
     file_put_contents(CONFIG_INSTALLATION, json_encode($_INSTALLATION));
     file_put_contents(CONFIG_MAIRIE, json_encode($_MAIRIE));
+    if($_INSTALLATION["etape"] == 5){
+        header("Location:../index.php"); // Renvoie vers la page du site
+        exit();
+    }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
