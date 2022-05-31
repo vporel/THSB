@@ -31,3 +31,5 @@
             "label" => "Espace PUB"
         ],
     ];
+
+    $_NB_THEMES = 6;

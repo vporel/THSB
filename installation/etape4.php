@@ -17,6 +17,9 @@
     <div class="btns">
         <button type="submit" class="btn btn-primary">Continuer</button>
     </div>
+    <center style="margin-top:15px;"><strong><i>
+        Pour vous connecter en tant qu'administrateur et modifier le site, entrez l'adresse /admin (après le nom du dossier du projet)
+    </i></strong></center>
 </form>
 
 <script type="text/javascript">

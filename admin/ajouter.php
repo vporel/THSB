@@ -10,6 +10,7 @@
         echo "La requête n'a pas pu être traitée. Le type d'élément n'existe pas dans l'URL. <br><a href='../index.php'>Retourner au site</a>";
         exit();
     }
+    $elementSchema = $_MODEL[$elementType];
     $form = generateForm($elementType, $_POST, "add");
     if(isset($_POST["form-submit"])){
         $nom = $_POST["nom"];
@@ -32,5 +33,5 @@
 ?>
 <?php $_TITLE = "Ajouter | ".ucfirst($elementType)." | THBS"; ?>
 <?php $_PAGE_TITLE = "Ajouter | ".ucfirst($elementType); ?>
-<?php $_CONTENT = $form ?>
+<?php $_CONTENT = $form.'<center><a href="../'.$elementSchema->getPage().'">Retourner à la page</a></center>' ?>
 <?php require "base.php"; ?>

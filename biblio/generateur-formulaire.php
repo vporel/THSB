@@ -21,7 +21,7 @@ function generateForm(string $elementType, $values = [], string $formType){
             if($formType == "update"){
                 $requiredText = ""; //Pour une modification on n'est pas obligé de renvoyer l'image
             }
-            $html .= '<input type="file" name="'.$propertyName.'" id="'.$propertyName.'" '.$requiredText.'/>';
+            $html .= '<input type="file" name="'.$propertyName.'" id="'.$propertyName.'" '.$requiredText.' '.((count($property->getExtensions())>0) ?  'accept=".'.implode(',.', $property->getExtensions()).'"' : "").'/>';
             if($value != ""){
                 $html .= "<font>Actuel : $value</font>";
             }

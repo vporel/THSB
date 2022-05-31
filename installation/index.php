@@ -32,28 +32,28 @@
                 }elseif($e->getCode() == 1049){
                     $message = "Base '$nom' inexistante";
                 }elseif($e->getCode() == 1044){
-                    $message = "Nom d'utilisateur $nomUtilisateur non reconnu";
+                    $message = "Nom d'utilisateur '$nomUtilisateur' non reconnu";
                 }elseif($e->getCode() == 1045){
-                    $message = "Le mot de passe $motDePasse ne correspond pas";
+                    $message = "Le mot de passe '$motDePasse' ne correspond pas au nom d'utilisateur '$nomUtilisateur'";
                 }else{
-                    $message = "Echec de la connexion à la base $nom. Vérifiez les informations entrées";
+                    $message = "Echec de la connexion à la base '$nom'. Vérifiez les informations entrées";
                 }
             }
-
-            try{
-                createTables($bdd);
-                $_MAIRIE["base-de-donnees"] = [
-                    "nom" => $nom,
-                    "hote" => $hote,
-                    "nom-utilisateur" => $nomUtilisateur,
-                    "mot-de-passe" => $motDePasse,
-                ];
-                $_INSTALLATION["etape"] = 3; // P&ssage à l'étape 3
-            }catch(PDOException $e){
-                echo $e->getMessage();
-                $message = "Echec de la création des tables dans la base de données";
+            if(isset($bdd) && $bdd != null){
+                try{
+                    createTables($bdd);
+                    $_MAIRIE["base-de-donnees"] = [
+                        "nom" => $nom,
+                        "hote" => $hote,
+                        "nom-utilisateur" => $nomUtilisateur,
+                        "mot-de-passe" => $motDePasse,
+                    ];
+                    $_INSTALLATION["etape"] = 3; // P&ssage à l'étape 3
+                }catch(PDOException $e){
+                    echo $e->getMessage();
+                    $message = "Echec de la création des tables dans la base de données";
+                }
             }
-            
         }else{
             $message = "Vous devez remplir les champs marqués d'une astérisque";
         }

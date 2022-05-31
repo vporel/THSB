@@ -11,6 +11,7 @@
         echo "La requête n'a pas pu être traitée. Le type d'élément n'existe pas dans l'URL. <br><a href='../index.php'>Retourner au site</a>";
         exit();
     }
+    $elementSchema = $_MODEL[$elementType];
     if($idElement == null || $idElement < 1){
         echo "La requête n'a pas pu être traitée. L'id de l'élément à modifier n'est pas valide. <br><a href='../index.php'>Retourner au site</a>";
         exit();
@@ -22,7 +23,7 @@
     }
     if(isset($_POST["supprimer"])){
         if(delete($elementType, $idElement, $_POST)){
-                header("Location:../index.php");
+                header("Location:../".$elementSchema->getPage());
         }else{
             $message = "Echec de la suppression";
         }

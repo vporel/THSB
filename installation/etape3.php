@@ -6,7 +6,7 @@
     <p>Vous pourrez les modifier plus tard</p>
     <?php foreach($_FONCTIONNALITES_DISPONIBLES as $index => $fonc){ ?>
     <span>
-        <input type="checkbox" name="fonctionnalites[]" id="<?= $fonc["nom"] ?>" value="<?= $index ?>"/>
+        <input type="checkbox" name="fonctionnalites[]" id="<?= $fonc["nom"] ?>" value="<?= $index ?>" checked/>
         <label for="<?= $fonc["nom"] ?>"><?= $fonc["label"] ?></label>
     </span>
     <?php } ?>

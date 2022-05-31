@@ -11,6 +11,7 @@
         echo "La requête n'a pas pu être traitée. Le type d'élément n'existe pas dans l'URL. <br><a href='../index.php'>Retourner au site</a>";
         exit();
     }
+    $elementSchema = $_MODEL[$elementType];
     if($idElement == null || $idElement < 1){
         echo "La requête n'a pas pu être traitée. L'id de l'élément à modifier n'est pas valide. <br><a href='../index.php'>Retourner au site</a>";
         exit();
@@ -37,5 +38,5 @@
 ?>
 <?php $_TITLE = "Modifier | ".ucfirst($elementType)." | ".$element["nom"]." | THBS"; ?>
 <?php $_PAGE_TITLE = "Modifier | ".ucfirst($elementType)." | ".$element["nom"] ?>
-<?php $_CONTENT = $form ?>
+<?php $_CONTENT = $form.'<center><a href="../'.$elementSchema->getPage().'">Retourner à la page</a></center>' ?>
 <?php require "base.php"; ?>

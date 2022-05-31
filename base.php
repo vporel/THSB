@@ -5,7 +5,14 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title><?= $_TITLE ?></title>
 
-	<link rel="stylesheet" type="text/css" href="assets/css/main.css"/>
+	<?php
+		$themeNb = $_MAIRIE["theme"] ?? null;
+		if($themeNb == null || (int) $themeNb < 0 || (int) $themeNb > $_NB_THEMES){
+			//Pour l(instant il n'a que 2 themes)
+			$themeNb = 1;//Theme par défaut
+		}
+	?>	
+	<link rel="stylesheet" type="text/css" href="assets/css/theme-<?= $themeNb ?>.css"/>
 	<script src="assets/js/biblio.js"></script>
 </head>
 <body>
@@ -18,7 +25,12 @@
 		</div>
 	</div>
 	<section id="content">
-		<?= $_CONTENT ?>
+		<main>
+			<?= $_CONTENT ?>
+		</main>
+		<aside>
+			<?php include "includes/aside.php"; ?>
+		</aside>
 	</section>
 	<footer>
 		<?php include "includes/footer.php"; ?>
