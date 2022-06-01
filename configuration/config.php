@@ -63,4 +63,4 @@
         ]
     ];
 
-    $_NB_THEMES = 3;
+    $_NB_THEMES = 4;
