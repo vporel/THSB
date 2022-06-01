@@ -5,10 +5,11 @@
         exit();
     }
 
-    if(isset($_POST["fonctionnalites"])){ // etape3.php
+    if(isset($_POST["fonctionnalites"])){ 
         $_MAIRIE["fonctionnalites"] = $_POST["fonctionnalites"];
-        file_put_contents(CONFIG_MAIRIE, json_encode($_MAIRIE));
-        $message = "Choix appliqués";
+        file_put_contents(FICHIER_CONFIG_MAIRIE, json_encode($_MAIRIE));
+        header("Location:../index.php");
+        exit();
     }
 ?>
 <?php $_TITLE = "Choix fonctionnalités | THBS"; ?>

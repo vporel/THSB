@@ -45,14 +45,28 @@
                 }elseif($e->getCode() == 1049){
                     $message = "Base '$nom' inexistante";
                 }elseif($e->getCode() == 1044){
-                    $message = "Nom d'utilisateur $nomUtilisateur non reconnu";
+                    $message = "Nom d'utilisateur '$nomUtilisateur' non reconnu";
                 }elseif($e->getCode() == 1045){
-                    $message = "Le mot de passe $motDePasse ne correspond pas";
+                    $message = "Le mot de passe '$motDePasse' ne correspond pas au nom d'utilisateur '$nomUtilisateur'";
                 }else{
-                    $message = "Echec de la connexion à la base $nom. Vérifiez les informations entrées";
+                    $message = "Echec de la connexion à la base '$nom'. Vérifiez les informations entrées";
                 }
             }
-            
+            if(isset($bdd) && $bdd != null){
+                try{
+                    createTables($bdd);
+                    $_MAIRIE["base-de-donnees"] = [
+                        "nom" => $nom,
+                        "hote" => $hote,
+                        "nom-utilisateur" => $nomUtilisateur,
+                        "mot-de-passe" => $motDePasse,
+                    ];
+                    $_INSTALLATION["etape"] = 3; // P&ssage à l'étape 3
+                }catch(PDOException $e){
+                    echo $e->getMessage();
+                    $message = "Echec de la création des tables dans la base de données";
+                }
+            }
         }else{
             $message = "Vous devez remplir les champs marqués d'une astérisque";
         }
@@ -80,8 +94,8 @@
         }
     }
     //Enregistrement de smodifications faites dans les fichiers de configuration
-    file_put_contents(CONFIG_INSTALLATION, json_encode($_INSTALLATION));
-    file_put_contents(CONFIG_MAIRIE, json_encode($_MAIRIE));
+    file_put_contents(FICHIER_CONFIG_INSTALLATION, json_encode($_INSTALLATION));
+    file_put_contents(FICHIER_CONFIG_MAIRIE, json_encode($_MAIRIE));
     if($_INSTALLATION["etape"] == 5){
         header("Location:../index.php"); // Renvoie vers la page du site
         exit();
@@ -95,7 +109,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Installation | THBS</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <style type="text/css">
+        :root{
+            --couleur-primaire:<?= $_THEME["couleur-admin"] ?? $_THEME_DEFAUT["couleur-admin"]; ?>    ;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="../admin/style.css">
     <script src="../assets/js/biblio.js"></script>
 </head>
 <body>

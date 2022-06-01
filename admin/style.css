@@ -1,12 +1,12 @@
-@import "../assets/css/_variables.css";
+
 @import "../assets/css/_general.css";
 
 body{
 	font-family: sans-serif;
     padding:0;
     margin:0;
-    background: radial-gradient(var(--couleur-primaire-claire), var(--couleur-primaire)) fixed;
-    color:rgb(70,70,70)
+    background: var(--couleur-primaire);
+    color:rgb(70,70,70);
 }
 
 #page{

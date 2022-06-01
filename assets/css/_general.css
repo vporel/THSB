@@ -4,13 +4,14 @@
     padding:7px 10px;
     font-size:17px;
     transition: all .2s ease;
+    text-decoration: none;
 }
 .btn-primary{
     background:var(--couleur-primaire);
     color:white;
 }
 .btn-primary:hover{
-    background:var(--couleur-primaire-claire);
+    background:var(--couleur-primaire);
 }
 
 .btn-bad{
@@ -23,16 +24,20 @@
 
 /* Boutons pour l'administrateur */
 .btn-admin-add{
-    background:var(--couleur-primaire)!important;
+    background:rgb(0, 70, 255)!important;
     color:white;
     cursor: pointer;
+    text-shadow:1px 1px 2px black;
+    font-weight:bold;
 }
 .btn-admin-add:hover{
-    background:var(--couleur-primaire-claire)!important;
+    background:rgb(0, 90, 255)!important;
 }
 .btn-admin-update{
     padding:4px 7px!important;
     background:rgba(0,150,0, .8)!important;
+    text-shadow:1px 1px 2px black;
+    font-weight:bold;
     color:white;
     cursor: pointer;
 }
@@ -43,6 +48,8 @@
 .btn-admin-delete{
     padding:4px 7px!important;
     background:rgba(200,0,0, .8)!important;
+    text-shadow:1px 1px 2px black;
+    font-weight:bold;
     color:white;
     cursor: pointer;
 }

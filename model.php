@@ -7,7 +7,7 @@ require_once __DIR__."/classes/ValidationRule.php";
 
 $_MODEL = [
     "administrateur" => new ElementSchema(
-        "administrateurs",
+        "administrateurs", 
         [
             new Property("login", "Login", "varchar", 20, false),
             new Property("motDePasse","Mot de passe",  "varchar", 255, false),
@@ -20,33 +20,41 @@ $_MODEL = [
             new Property("poste", "Poste", "varchar", 50, false),
             new Property("parcours", "Parcours", "text", null, false),
             new FileProperty("photo","Photo", true, __DIR__."/assets/images/personnels", ["jpg", "jpeg", "png"]),
-            new FileProperty("cv", "Curriculum Vitae",false, __DIR__."/assets/cv-personnels", ["pdf", "jpg", "jpeg", "png"]),
-        ]
+            new FileProperty("cv", "Curriculum Vitae",false, __DIR__."/assets/cv-personnels", ["docx", "doc", "odt", "pdf", "jpg", "jpeg", "png"]),
+        ], "personnel"
     ),
     "projet" => new Contenu(
         "projets",
         [
+            new Property("personnesEnCharge", "Personnes en charge", "varchar", 255, true),
             new Property("dateDebut","Date de début", "date", null, false)
-        ], __DIR__."/assets/images/projets"
+        ], __DIR__."/assets/images/projets", "projets"
     ),
     "activite" => new Contenu(
         "activites",
         [
+            new Property("personnesEnCharge", "Personnes en charge", "varchar", 255, true),
             new Property("dateDebut","Date de début", "date", null, false)
-        ],__DIR__."/assets/images/activites"
+        ],__DIR__."/assets/images/activites", "activites"
     ),
     "annonce" => new Contenu(
         "annonces",
         [
-            new Property("type","Type de l'annonce", "varchar", 255, false)
-        ],__DIR__."/assets/images/annonces"
+            new Property("type","Type de l'annonce", "varchar", 255, false),
+            new Property("date","Date", "date", null, false)
+        ],__DIR__."/assets/images/annonces", "annonces"
     ),
     "lieuTouristique" => new Contenu(
         "lieux_touristiques",
-        [], __DIR__."/assets/images/lieux-touristiques"
+        [
+            new Property("adresse", "Adresse", "varchar", 255, false)
+        ], __DIR__."/assets/images/lieux-touristiques", "lieux-touristiques"
     ),
     "publicite" => new Contenu(
         "publicites",
-        [],__DIR__."/assets/images/publicites"
+        [
+            new Property("contacts", "Contacts", "varchar", 255, true),
+            new Property("date","Date", "date", null, false)
+        ],__DIR__."/assets/images/publicites", "espace-publicite"
     )
 ];

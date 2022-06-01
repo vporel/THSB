@@ -22,7 +22,7 @@ function connectDB():?PDO
             //Création des tables
             
         }catch(PDOException $e){
-            //Do noting
+            echo $e->getMessage();
         }
     }
     return $_BDD;
@@ -30,26 +30,39 @@ function connectDB():?PDO
 
 
 
-function findBy(string $elementType, array $criteria):?array
+function findBy(string $elementType, array $criteria, string $orderBy = null, int $limit = null):?array
 {
     $elementSchema = getElementSchema($elementType);
     $query = "SELECT * FROM ".$elementSchema->getTable();
-    $whereStatements = [];
-    $whereStatementsValues = [];
-    foreach($criteria as $key => $value){
-        if($key == "id" || array_key_exists($key, $elementSchema->getProperties())){
-            $whereStatements[] = "$key = ?";
-            $whereStatementsValues[] = $value;
-        }else{
-            throw new InvalidArgumentException("La propriété '$key' dans les critères n'est pas reconnue");
+    if($criteria != null && is_array($criteria)){
+        $whereStatements = [];
+        $whereStatementsValues = [];
+        foreach($criteria as $key => $value){
+            if($key == "id" || array_key_exists($key, $elementSchema->getProperties())){
+                $whereStatements[] = "$key = ?";
+                $whereStatementsValues[] = $value;
+            }else{
+                throw new InvalidArgumentException("La propriété '$key' dans les critères n'est pas reconnue");
+            }
+        }
+        if(count($whereStatements) > 0){
+            $query .= " WHERE ".implode(" AND ", $whereStatements);
         }
     }
-    if(count($whereStatements) > 0){
-        $query .= " WHERE ".implode(" AND ", $whereStatements);
+    //Order
+    if($orderBy != null){
+        if(substr($orderBy, 0,1) == "-"){
+            $query .= " ORDER BY ".substr($orderBy, 1)." DESC";
+        }else{
+            $query .= " ORDER BY ".$orderBy;
+        }
+    }
+    if($limit != null){
+        $query .= " LIMIT 0, $limit";
     }
     $bdd = connectDB();
     $req = $bdd->prepare($query);
-    $req->execute($whereStatementsValues);
+    $req->execute($whereStatementsValues ?? []);
     $elements = [];
     while($element = $req->fetch(PDO::FETCH_ASSOC))
         $elements[] = $element;
