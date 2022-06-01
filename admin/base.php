@@ -17,7 +17,8 @@
 <body>
     <div id="page">
         <header>
-            <h2>Administration | THSB</h2>
+            <h2><?= $installation ? "Installation" : "Administration" ?> | THSB</h2>
+            <p>Town Hall Site Builder</p>
             <h3><?= $_PAGE_TITLE ?></h3>
         </header>
         <?php if(isset($message)){ ?>
@@ -26,7 +27,14 @@
             </div>
         <?php } ?>
         <?= $_CONTENT ?>
+        <?php if(!$installation){ ?> 
         <center><a href="../index.php">Retourner au site</a></center>
+        <?php }else{?> 
+            <h5>Membres de l'équipe</h5>
+            <ol>
+                <li>NKOUANANG KEPSEU VIVIAN POREL - 20U2668 <i>(Chef du groupe)</i></li>
+            </ol>
+        <?php } ?> 
     </div>
 </body>
 </html>

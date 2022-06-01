@@ -14,15 +14,33 @@ function connectDB():?PDO
     global $_MAIRIE;
     if($_BDD == null){
         try{
-            $hote = $_MAIRIE["base-de-donnees"]["hote"];
-            $nomBDD = $_MAIRIE["base-de-donnees"]["nom"];
-            $nomUtilisateur = $_MAIRIE["base-de-donnees"]["nom-utilisateur"];
-            $motDePasse = $_MAIRIE["base-de-donnees"]["mot-de-passe"];
-            $_BDD = new PDO("mysql:host=$hote;dbname=$nomBDD", $nomUtilisateur, $motDePasse, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
-            //Création des tables
+            /*
+                Utilisation d'une base mysql
+                $hote = $_MAIRIE["base-de-donnees"]["hote"];
+                $nomBDD = $_MAIRIE["base-de-donnees"]["nom"];
+                $nomUtilisateur = $_MAIRIE["base-de-donnees"]["nom-utilisateur"];
+                $motDePasse = $_MAIRIE["base-de-donnees"]["mot-de-passe"];
+                $_BDD = new PDO("mysql:host=$hote;dbname=$nomBDD", $nomUtilisateur, $motDePasse, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+            */
+            $_BDD = new PDO("sqlite:".FICHIER_BASE_DE_DONNEES);
             
         }catch(PDOException $e){
-            echo $e->getMessage();
+            echo "Echec de la connexion à la base de données<br><br>";
+            /*
+                Utilisation dune base mysql
+                if($e->getCode() == 2002){
+                    $message = "Hôte '$hote' injoignable";
+                }elseif($e->getCode() == 1049){
+                    $message = "Base '$nomBDD' inexistante";
+                }elseif($e->getCode() == 1044){
+                    $message = "Nom d'utilisateur '$nomUtilisateur' non reconnu";
+                }elseif($e->getCode() == 1045){
+                    $message = "Le mot de passe '$motDePasse' ne correspond pas au nom d'utilisateur '$nomUtilisateur'";
+                }else{
+                    $message = "Echec de la connexion à la base '$nomBDD'. Vérifiez les informations dans le fichier de configuration";
+                }
+            */
+            exit();
         }
     }
     return $_BDD;
@@ -77,6 +95,11 @@ function findOneBy(string $elementType, array $criteria):?array
 {
     $elements = findBy($elementType, $criteria);
     return $elements[0] ?? null;
+}
+
+function elementExists(string $elementType, array $criteria):bool
+{
+    return findOneBy($elementType, $criteria) != null;
 }
 
 /**
@@ -198,10 +221,18 @@ function createTables($bdd){
 
 function createTable($bdd, ElementSchema $elementSchema)
 {
+    /*
+        Utilisation d'une base mysql
+        $query = "
+            CREATE TABLE IF NOT EXISTS ".$elementSchema->getTable()."(
+                id int(10) NOT NULL AUTO_INCREMENT PRIMARY KEY
+            ";
+    */
     $query = "
         CREATE TABLE IF NOT EXISTS ".$elementSchema->getTable()."(
-            id int(10) NOT NULL AUTO_INCREMENT PRIMARY KEY
-        ";
+            id INTEGER PRIMARY KEY
+        "; // Sur sqlite, autoincrement est en un mot
+        
     $fieldsQueryParts = [];
     foreach($elementSchema->getProperties() as $property){
         $fieldQueryPart = $property->getName()." ".$property->getType();

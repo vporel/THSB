@@ -14,14 +14,14 @@
 <style type="text/css">
 	#personnels{
 		display: flex;
-		justify-content: space-evenly;
+		justify-content: flex-start;
 		flex-wrap: wrap;
 	}
 	#personnels section{
 		display: flex;
-		margin: 10px 0;
+		margin: 10px 5px;
 		flex-direction: column;
-		width: 48%;
+		width: 49%;
 		box-shadow: 0 0 2px gray;
 		transition: all .2s ease;
 	}
