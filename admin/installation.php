@@ -121,7 +121,6 @@
     file_put_contents(FICHIER_CONFIG_INSTALLATION, json_encode($_INSTALLATION));
     file_put_contents(FICHIER_CONFIG_MAIRIE, json_encode($_MAIRIE));
     if($_INSTALLATION["etape"] == 6){
-        $_INSTALLATION["terminee"] = true;
         $_SESSION["installation"] = false;
         file_put_contents(FICHIER_CONFIG_INSTALLATION, json_encode($_INSTALLATION));
         header("Location:../index.php"); // Renvoie vers la page du site
