@@ -25,6 +25,12 @@
 					</a>
 				<?php } ?>
 			</h2>
+			<h3>
+				<?= $publicite["contacts"] ?>
+				
+				
+			</h3>
+		
 			<p>
 				<?= nl2br($publicite["description"]) ?>
 			</p>
