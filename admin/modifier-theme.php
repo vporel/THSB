@@ -1,6 +1,6 @@
 <?php 
     require "./head.php";
-    if(!isAdminConnected()){
+    if(!$installation && !isAdminConnected()){
         header("Location:index.php");
         exit();
     }

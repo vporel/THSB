@@ -27,3 +27,5 @@ $vuePage = ["ip_visiteur" => $ipVisiteur, "id_page"=>$idPage];
 if(!elementExists("vuePage", $vuePage)){
     save("vuePage", $vuePage);
 }
+
+$nbVisiteurs = count(findBy("vuePage", ["id_page" => $idPage]));

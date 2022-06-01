@@ -20,6 +20,9 @@
             </a>
         <?php } ?>
     </h1>
+    <div id="nb-visiteurs">
+        <span><?php echo $nbVisiteurs; ?></span> visiteur<?= $nbVisiteurs > 1 ? "s": ""; ?> sur cette page
+    </div>
 </div>
 <nav id="navbar">
     <div id="navbar-toggler">+</div>

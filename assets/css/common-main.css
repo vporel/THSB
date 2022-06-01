@@ -6,6 +6,28 @@ body{
 	color: rgb(50,50,50);
 }
 
+#before-nav #nb-visiteurs{
+	position:absolute;
+	right:5px;
+	top:0;
+	height:100%;
+	display:flex;
+	width:150px;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	text-align: center;
+	color:rgb(255, 255, 255);
+	animation: nbVisiteurs 1s ease forwards;
+}
+#before-nav #nb-visiteurs span{
+	font-size:20px;
+	border:2px solid white;
+	border-radius:50%;
+	padding:5px 10px;
+	font-weight:bold;
+}
+
 
 #content{
 	width: 90%;
