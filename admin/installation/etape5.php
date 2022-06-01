@@ -1,6 +1,6 @@
-
+<?php $_PAGE_TITLE = "Compte administrateur" ?>
 <form method="post">
-    <h3>Compte administrateur</h3>
+    <h4 style="text-align:center">Pour cette première version, on ne peut avoir qu'un seul compte administrateur</h4>
     <input type="hidden" name="compte-administrateur">
     <span>
         <label for="login">Login <font class="asterisque">*</font></label>
