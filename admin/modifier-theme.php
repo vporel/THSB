@@ -46,8 +46,8 @@
             <?php } ?>
             </center>
         </span>
-        <span>
-            <label>Disposition des elements</label>
+        <details>
+            <summary style="cursor:pointer">Disposition des elements</summary>
             <?php 
                 foreach($_FONCTIONNALITES_DISPONIBLES as $index => $fonc){ 
                     $nbDispositions = ($index == 1) ? 2 : 4;
@@ -62,7 +62,7 @@
                 </center>
                 </fieldset>
             <?php } ?>
-        </span>
+        </details>
         <div class="btns">
             <button type="submit" class="btn btn-primary" >Terminer</button>
         </div>

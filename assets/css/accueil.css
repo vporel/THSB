@@ -1,0 +1,39 @@
+
+#conseillers{
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+.conseiller{
+    display: flex;
+    margin: 5px;
+    padding:0 5px;
+    flex-direction: column;
+    width: 22%;
+    box-shadow: 0 0 2px gray;
+    transition: all .2s ease;
+}
+.conseiller:hover{
+    transform: scale(1.01);
+}
+.conseiller .images{
+    order: 1;
+    justify-content: center;
+}
+.conseiller .images img{
+    height:150px!important;
+    width:auto!important;
+}
+.conseiller .images img:hover{
+    box-shadow: none!important;
+    transform: none!important;
+}
+.conseiller .title{
+    text-align: center;
+    margin: 5px 0;
+    order: 2;
+    color:black;
+}
+#conseillers .btn{
+    display: block;
+}

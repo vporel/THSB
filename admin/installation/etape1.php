@@ -1,21 +1,17 @@
-
+<?php $_PAGE_TITLE = "Mode d'installation" ?>
 <style type="text/css">
-    #text-nom-mairie{
-        display:none;
-        text-align:center;
-        padding:5px 0;
-    }
-    #text-nom-mairie font{
-        color:var(--couleur-primaire);
-        font-weight: bold;
-    }
+    form span{text-align:center;}
+    form span *{display:inline-block}
 </style>
 <form method="post">
     <span>
-        <label for="nom-mairie" style="text-align:center">Nom de la mairie</label>
-        <input type="text" name="nom-mairie" id="nom-mairie" required autocomplete="false"/>
+        <label for="rapide">Rapide</label>
+        <input type="radio" name="mode-installation" id="rapide" checked value="1"/>
     </span>
-    <div id="text-nom-mairie">Site pour la mairie de <font></font></div>
+    <span>
+        <label for="complete">Complète</label>
+        <input type="radio" name="mode-installation" id="complete" value="2"/>
+    </span>
     <div class="btns">
         <button type="submit" class="btn btn-primary">Continuer</button>
     </div>

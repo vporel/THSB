@@ -19,9 +19,16 @@ $_MODEL = [
             new Property("nom", "Nom", "varchar", 50, false),
             new Property("poste", "Poste", "varchar", 50, false),
             new Property("parcours", "Parcours", "text", null, false),
-            new FileProperty("photo","Photo", true, __DIR__."/assets/images/personnels", ["jpg", "jpeg", "png"]),
+            new FileProperty("photo","Photo", false, __DIR__."/assets/images/personnels", ["jpg", "jpeg", "png"]),
             new FileProperty("cv", "Curriculum Vitae",false, __DIR__."/assets/cv-personnels", ["docx", "doc", "odt", "pdf", "jpg", "jpeg", "png"]),
         ], "personnel"
+    ),
+    "conseiller" => new ElementSchema(
+        "conseillers",
+        [
+            new Property("nom", "Nom complet", "varchar", 50, false),
+            new FileProperty("photo","Photo", false, __DIR__."/assets/images/conseillers", ["jpg", "jpeg", "png"]),
+        ], ""
     ),
     "projet" => new Contenu(
         "projets",
@@ -56,5 +63,12 @@ $_MODEL = [
             new Property("contacts", "Contacts", "varchar", 255, true),
             new Property("date","Date", "date", null, false)
         ],__DIR__."/assets/images/publicites", "espace-publicite"
+    ),
+    "vuePage" => new ElementSchema(
+        "vues_pages", 
+        [
+            new Property("ip_visiteur", "Ip du visiteur", "varchar", 30, false),
+            new Property("id_page","Id page",  "varchar", 2, false),
+        ]
     )
 ];

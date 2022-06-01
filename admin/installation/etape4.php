@@ -1,8 +1,8 @@
+<?php $_PAGE_TITLE = "Eléments à gérer" ?>
 <style>
     label{display:inline!important}
 </style>
 <form method="post">
-    <h3>Eléments à gérer</h3>
     <p>Vous pourrez les modifier plus tard</p>
     <?php foreach($_FONCTIONNALITES_DISPONIBLES as $index => $fonc){ ?>
     <span>
