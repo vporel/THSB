@@ -15,8 +15,8 @@
     <h1>
         <?= "Mairie de ".$_MAIRIE["nom"]; ?>
         <?php if(isAdminConnected()){ ?>
-            <a href="admin/modifier-info-mairie.php?infoType=nom" class="admin-element btn btn-admin-update" style="right:5px;">
-                Modifier
+            <a href="admin/modifier-info-mairie.php?infoType=nom" class="btn btn-admin-update">
+                Modifier le nom
             </a>
         <?php } ?>
     </h1>
@@ -39,7 +39,7 @@
         ?>
         <?php if(isAdminConnected()){ ?>
             <a href="admin/choix-fonctionnalites.php" class="pos-absolute admin-element btn btn-admin-update" style="right:5px;">
-                Modifier
+                <object data="assets/icons/edit.svg" class="icon"></object><em>Choisir les pages</em>
             </a>
         <?php } ?>
     </div>

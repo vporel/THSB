@@ -11,7 +11,7 @@ class FileProperty extends Property{
      */
     private $extensions;
     
-    public function __construct(string $name, string $label, bool $nullable = false, $folder, $extensions = []){
+    public function __construct(string $name, string $label, string $folder, $extensions = [], bool $nullable = false, ){
         $this->folder = $folder;
         $this->extensions = $extensions;
         parent::__construct($name, $label, "varchar", 255, $nullable);

@@ -3,6 +3,7 @@ require_once __DIR__."/classes/ElementSchema.php";
 require_once __DIR__."/classes/Contenu.php";
 require_once __DIR__."/classes/Property.php";
 require_once __DIR__."/classes/FileProperty.php";
+require_once __DIR__."/classes/EnumProperty.php";
 require_once __DIR__."/classes/ValidationRule.php";
 
 $_MODEL = [
@@ -19,15 +20,15 @@ $_MODEL = [
             new Property("nom", "Nom", "varchar", 50, false),
             new Property("poste", "Poste", "varchar", 50, false),
             new Property("parcours", "Parcours", "text", null, false),
-            new FileProperty("photo","Photo", false, __DIR__."/assets/images/personnels", ["jpg", "jpeg", "png"]),
-            new FileProperty("cv", "Curriculum Vitae",false, __DIR__."/assets/cv-personnels", ["docx", "doc", "odt", "pdf", "jpg", "jpeg", "png"]),
+            new FileProperty("photo","Photo", __DIR__."/assets/images/personnels", ["jpg", "jpeg", "png"], false),
+            new FileProperty("cv", "Curriculum Vitae", __DIR__."/assets/cv-personnels", ["docx", "doc", "odt", "pdf", "jpg", "jpeg", "png"], false),
         ], "personnel"
     ),
     "conseiller" => new ElementSchema(
         "conseillers",
         [
             new Property("nom", "Nom complet", "varchar", 50, false),
-            new FileProperty("photo","Photo", false, __DIR__."/assets/images/conseillers", ["jpg", "jpeg", "png"]),
+            new FileProperty("photo","Photo", __DIR__."/assets/images/conseillers", ["jpg", "jpeg", "png"], false),
         ], ""
     ),
     "projet" => new Contenu(
@@ -47,7 +48,7 @@ $_MODEL = [
     "annonce" => new Contenu(
         "annonces",
         [
-            new Property("type","Type de l'annonce", "varchar", 255, false),
+            new EnumProperty("type","Type de l'annonce", ["Mariage", "Décret", "Marché"], false,true),
             new Property("date","Date", "date", null, false)
         ],__DIR__."/assets/images/annonces", "annonces"
     ),

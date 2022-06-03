@@ -39,3 +39,22 @@ h3{
 .asterisque{
     color:red;
 }
+
+#liens-pied{
+    position: absolute;
+    width:100%;
+    left:0;
+    display:flex;
+    justify-content: center;
+    bottom:10px;
+    z-index:5;
+}
+#liens-pied a{
+    text-decoration: none;
+    border-radius:20px;
+    background:var(--couleur-primaire);
+    margin:5px;
+    padding:10px;
+    box-shadow: 0 0 4px black;
+    color:white;
+}

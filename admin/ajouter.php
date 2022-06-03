@@ -1,8 +1,8 @@
 <?php 
     require "./head.php";
     require_once __DIR__."/../classes/DBManagerException.php";
-    if(!isAdminConnected()){
-        header("Location:index.php");
+    if(!$installation && !isAdminConnected()){
+        header("Location:../index.php");
         exit();
     }
     $elementType = $_GET["elementType"] ?? null;
@@ -17,7 +17,7 @@
         $elementExistant = findOneBy($elementType, ["nom"=>$nom]);
         if($elementExistant === null){
             try{
-                $idProjet = save($elementType, $_POST);
+                $idProjet = save($elementType, parseFormData($elementType));
                 if($idProjet > 0){
                     $message = "Elément ajouté avec succès";
                     $form = generateForm($elementType, [], "add"); // On vide le formulaire
@@ -33,5 +33,13 @@
 ?>
 <?php $_TITLE = "Ajouter | ".ucfirst($elementType)." | THBS"; ?>
 <?php $_PAGE_TITLE = "Ajouter | ".ucfirst($elementType); ?>
-<?php $_CONTENT = $form.'<center><a href="../'.$elementSchema->getPage().'">Retourner à la page</a></center>' ?>
+
+<?php ob_start() ?>
+    <form method="POST" enctype="multipart/form-data">
+        <?= $form ?>
+        <div class="btns">
+            <button type="submit" class="btn btn-primary" name="form-submit"><object data="../assets/icons/plus.svg" class="icon"></object><em>Ajouter</em></button>
+        </div>
+    </form>
+<?php $_CONTENT = ob_get_clean(); ?>
 <?php require "base.php"; ?>

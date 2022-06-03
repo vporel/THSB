@@ -79,7 +79,7 @@
     $_THEME_DEFAUT = [
         "numero" => 1, 
         "couleur-site" => "#0364be", 
-        "couleur-admin" => "#0364be",
+        "couleur-admin" => "#2e3436",
         "dispositions" => [
             1 => 1,
             2 => 1,

@@ -1,4 +1,22 @@
+
+.icon{
+    width:20px;
+    display:inline-block;
+    margin-right:5px;
+}
+
 /* Boutons */
+.btn em, button em{
+    font-style: normal;
+    display:inline-block;
+    vertical-align: top;
+    height:100%;
+}
+.btn .icon, button .icon{
+    display:inline-block;
+    vertical-align: top;
+    height:100%;
+}
 .btn{
     border:0;
     padding:7px 10px;
@@ -6,12 +24,13 @@
     transition: all .2s ease;
     text-decoration: none;
 }
+.btn .icon{filter:invert(100%);}
 .btn-primary{
     background:var(--couleur-primaire);
     color:white;
 }
 .btn-primary:hover{
-    background:var(--couleur-primaire);
+    background:var(--couleur-primaire-claire)!important;
 }
 
 .btn-bad{
@@ -92,12 +111,14 @@ form label{
 form input[type=text],
 form input[type=date],
 form textarea,
+form select,
 form input[type=password]{
     display: block;
-    width:100%;
+    max-width: 100%;
+    min-width:100%;
     border:1px solid lightgray;
     border-radius:5px;
-    height:30px;
+    min-height:30px;
     font-family: sans-serif;
 }
 
@@ -107,6 +128,8 @@ form textarea{
 
 form textarea:hover,
 form textarea:focus,
+form select:hover,
+form select:focus,
 form input:hover,
 form input:focus{
     border-color:var(--couleur-primaire);

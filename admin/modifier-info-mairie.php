@@ -30,12 +30,12 @@
             $_SESSION["installation-niveau-etape-3"]++;
             header("Location:installation.php");
         }else
-            header("Location:../index.php");
+            header("Location:../index.php#$infoType");
         exit();
     }
 ?>
 <?php $_TITLE = "Modification ".$infoType." | THBS"; ?>
-<?php $_PAGE_TITLE = "Mairie de ".$_MAIRIE["nom"] ?>
+<?php $_PAGE_TITLE = "Mairie de ".($_MAIRIE["nom"] ?? "") ?>
 <?php ob_start(); ?>
     <style>
         label[for="info-valeur"]{text-align:center;font-size:22px!important;}
@@ -50,13 +50,7 @@
             <label for="info-valeur"><?= ucfirst($infoType) ?></label>
             <?php if($infoType == "nom"){ ?>
                 <input type="text" name="info-valeur" id="info-valeur" value="<?= $infoValeur ?>"/>
-            <?php }elseif($infoType == "theme"){ ?>
-                <center>
-                <?php for($i=1;$i<=$_NB_THEMES;$i++){ ?>
-                    <input type="radio" name="info-valeur" id="theme-<?= $i ?>" value="<?= $i ?>" <?= $_MAIRIE["theme"] == $i ? "checked" : "" ?>/>
-                    <label for="theme-<?= $i ?>" ><img src="../assets/images/themes/<?= $i ?>.jpg" alt="Thème <?= $i ?>" class="theme-image"></label>
-                <?php } ?>
-                </center>
+            
             <?php }elseif($infoType == "image"){ ?>
                 <center>
                     <input type="file" name="info-valeur" id="info-valeur" />

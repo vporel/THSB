@@ -120,37 +120,18 @@ function findById(string $elementType, int $id):?array
  * 
  * @return string|null Identifiant de l'élément ajouté
  */
-function save(string $elementType, array $propertiesValues):?string
+function save(string $elementType, array $data):?string
 {
     $elementSchema = getElementSchema($elementType);
-    $propertiesNames = array_keys($elementSchema->getProperties());
     $questionMarks = [];
-    foreach($propertiesNames as $p){
-        $questionMarks[] = "?";
-    }
-    $query = "INSERT INTO ".$elementSchema->getTable()."(".implode(", ", $propertiesNames).") VALUES(".implode(", ",$questionMarks).")";
     $values = [];
-    foreach($elementSchema->getProperties() as $propertyName => $property){
-        $value = $propertiesValues[$propertyName] ?? null;
-        if($property instanceof FileProperty){
-            try{
-                $value = FileUpload::upload($propertyName, $property->getFolder(), $property->getExtensions());
-            }catch(FileUploadException $e){
-                if($e->getCode() == FileUploadException::FILE_NOT_RECEIVED){               
-                    throw new DBManagerException("Choisissez un fichier pour le champ $propertyName");
-                }else{               
-                    throw new DBManagerException($e->getMessage());
-                }
-            }
-        }
-        if($value === null){
-            
-            if(!$property->isNullable()){
-                throw new DBManagerException("La valeur pour la propriété $propertyName ne peut être nulle");
-            }
-        }
+    foreach($data as $value){
+        $questionMarks[] = "?";
         $values[] = $value;
     }
+    $propertiesNames = array_keys($elementSchema->getProperties());
+    $query = "INSERT INTO ".$elementSchema->getTable()."(".implode(", ", $propertiesNames).") VALUES(".implode(", ",$questionMarks).")";
+    
 
     $bdd = connectDB();
     $req = $bdd->prepare($query);
@@ -165,32 +146,14 @@ function save(string $elementType, array $propertiesValues):?string
  * 
  * @return bool True si la modification a été effectuée avec succès
  */
-function update(string $elementType, int $idElement, array $propertiesValues):bool
+function update(string $elementType, int $idElement, array $data):bool
 {
     $elementSchema = getElementSchema($elementType);
     $updates = [];
     $values = [];
-    foreach($elementSchema->getProperties() as $propertyName => $property){
-        if($property instanceof FileProperty){
-            try{
-                $values[] = FileUpload::upload($propertyName, $property->getFolder(), $property->getExtensions());
-                $updates[] = "$propertyName = ?";
-            }catch(FileUploadException $e){
-                if($e->getCode() != FileUploadException::FILE_NOT_RECEIVED){               
-                    throw new DBManagerException($e->getMessage());
-                }
-            }
-        }else{
-            $value = $propertiesValues[$propertyName] ?? null;
-            if($value === null){
-                
-                if(!$property->isNullable()){
-                    throw new DBManagerException("La valeur pour la propriété $propertyName ne peut être nulle");
-                }
-            }
-            $updates[] = "$propertyName = ?";
-            $values[] = $value;
-        }
+    foreach($data as $propertyName => $value){
+        $updates[] = "$propertyName = ?";
+        $values[] = $value;
     }
     $query = "UPDATE ".$elementSchema->getTable()." SET ".implode(", ",$updates)." WHERE id = $idElement";
     $bdd = connectDB();

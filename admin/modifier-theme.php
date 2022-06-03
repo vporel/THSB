@@ -4,10 +4,14 @@
         header("Location:index.php");
         exit();
     }
-    if(isset($_POST["couleur-site"])){
+    if(isset($_POST["couleur-site"])){ //Formulaire de modification du theme envoyé
         $_THEME["couleur-site"] = $_POST["couleur-site"];
         $_THEME["couleur-admin"] = $_POST["couleur-admin"];
         $_THEME["numero"] = $_POST["numero-theme"];
+        foreach($_FONCTIONNALITES_DISPONIBLES as $index => $fonc){ 
+            echo $index;
+            $_THEME["dispositions"][$index] = $_POST["disposition-$index"];
+        }
         file_put_contents(FICHIER_CONFIG_THEME, json_encode($_THEME));
         header("Location:../index.php");
         exit();
