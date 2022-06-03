@@ -1,0 +1,141 @@
+@import "./_general.css";
+@import "./_admin-elements.css";
+@import "./common-main.css";
+
+
+/* Section dans le header affichant le nom de la mairie*/
+#before-nav{
+	height: 275px;width: 100%;
+	position: relative;overflow: hidden;
+	background:var(--couleur-primaire);
+	display: flex;
+	align-items: center;
+	border: 1px double black;
+}
+/* Titre dans le header (nom de la mairie)  */
+#before-nav h1{ 
+	width: 100%;
+	color: white;
+	font-size: 50pxborder: 2px solid black;;
+	/*animation: titleShow 1s forwards;*/
+	text-shadow: 1px 1px 2px black;
+	z-index: 5;
+	text-align: left;
+	border: 1px solid black;
+}
+
+/* animation du titre dans le header*/
+@keyframes titleShow{
+	from{
+		margin-left:-500px;opacity: 0;
+	}
+	to{
+		margin-left: 0;opacity: 1;
+	}
+}
+#navbar{
+	position: fixed;
+	top: 0;
+	z-index: 5;
+	background: white;
+	width: 100%;
+	height: 40px;
+	overflow: hidden;
+	
+}
+
+#navbar #navbar-toggler{
+	display: none;
+	
+}
+
+#navbar #navbar-content{
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	
+}
+
+#navbar .nav-link{
+	margin: 0px;
+	text-decoration: none;
+	color: inherit;
+	height: 100%;
+	padding: 0 15px;
+	display: flex;
+	align-items: center;
+	transition: all .3s ease;
+
+}
+
+
+#navbar .nav-link:hover, #navbar .nav-link.active{
+	color:white;
+	box-shadow: 0 -50px 0 var(--couleur-primaire) inset;
+}
+
+
+
+
+aside h2{
+	margin: 5px 0;
+	background: var(--couleur-primaire);
+	padding: 5px;
+	color: white;
+	font-size:18px;
+	text-decoration: blink;
+	border: 1px solid black;
+}
+aside h4{
+	margin: 5px 0;
+	border-bottom: 2px solid var(--couleur-primaire);
+	padding: 5px 0;
+	color: var(--couleur-primaire);
+	border: 1px solid black;
+}
+aside article {
+	border-radius: 5px;
+	border: 2px double black;
+}
+aside article p{
+	font-family: Arial;
+	font-style: italic;
+	border: 2px solid black;
+
+}
+
+aside article .see-more{
+	color: blue;
+	text-decoration: underline;
+	border: 1px solid black;
+}
+
+aside .see-more-layout{
+	display: flex;
+	justify-content: flex-end;
+	border: 1px solid black;
+}
+
+
+footer{
+	background: rgb(40,40,40);
+	min-height: 100px;
+	padding: 15px;
+	color: rgb(200,200,200);
+	text-align: center;
+	margin-top: 10px;
+	border: 1px solid black;
+}
+
+.badge{
+	background: var(----couleur-secondaire);
+	color: white;
+	display: inline-block;
+	padding: 5px;
+	border-radius: 5px;
+	font-size: 0.6em;
+	border: 1px double black;
+}
+
