@@ -19,6 +19,9 @@
     $_MAIRIE = json_decode(file_get_contents(FICHIER_CONFIG_MAIRIE), true) ?? [];
     $_MAIRIE["imagePresente"] = isset($_MAIRIE["image"]) && $_MAIRIE["image"] != null && file_exists(__DIR__."/../assets/images/".$_MAIRIE["image"]);
     $_INSTALLATION = json_decode(file_get_contents(FICHIER_CONFIG_INSTALLATION), true) ?? [];
+    $_INSTALLATION["etape"] = $_INSTALLATION["etape"] ?? 1;
+    $_INSTALLATION["etape-complete"] = $_INSTALLATION["etape-complete"] ?? 0;
+    $_INSTALLATION["nbre-etapes"] = 6;
     $_THEME = json_decode(file_get_contents(FICHIER_CONFIG_THEME), true) ?? [];
 
     /**
@@ -89,5 +92,7 @@
             6 => 1
         ]
     ];
+
+    $_THEME = array_merge($_THEME_DEFAUT, $_THEME);
 
     $_NB_THEMES = 4;

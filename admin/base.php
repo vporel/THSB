@@ -24,7 +24,7 @@
     <div id="page">
         <header>
             <h2><?= $installation ? "Installation" : "Administration" ?> | THSB</h2>
-            <p>Town Hall Site Builder</p>
+            <p style="color:lightgray">Town Hall Site Builder</p>
             <h3><?= $_PAGE_TITLE ?></h3>
         </header>
         <div id="content">
@@ -43,17 +43,28 @@
             </ol>
         <?php } ?> 
     </div>
+    <div id="liens-pied">
     <?php if(!$installation){ ?> 
-        <div id="liens-pied">
-            <?php if(isset($elementType) &&  $elementSchema->getPage() != ""){ ?> 
-                <a href="../<?= $elementSchema->getPage() ?>" class="btn btn-primary">
-                    <object data="../assets/icons/arrow-left.svg" class="icon"></object><em>Aller à la page - <?= ucfirst($elementType) ?></em>
-                </a>
-            <?php } ?> 
-            <a href="../index.php" class="btn btn-primary">
-                <object data="../assets/icons/arrow-left.svg" class="icon"></object><em>Aller à la page d'accueil</em>
+        <?php if(isset($elementType) &&  $elementSchema->getPage() != ""){ ?> 
+            <a href="../<?= $elementSchema->getPage() ?>" class="btn btn-primary">
+                <object data="../assets/icons/arrow-left.svg" class="icon"></object><em>Aller à la page - <?= ucfirst($elementType) ?></em>
             </a>
-        </div>
+        <?php } ?> 
+        <a href="../index.php" class="btn btn-primary">
+            <object data="../assets/icons/arrow-left.svg" class="icon"></object><em>Aller à la page d'accueil</em>
+        </a>
+    <?php }else{ ?>
+        <?php if($_INSTALLATION["etape"] > 1){ ?> 
+            <a href="installation.php?prev" class="btn btn-primary">
+                <object data="../assets/icons/arrow-left.svg" class="icon"></object><em>Précédent</em>
+            </a>
+        <?php } ?> 
+        <?php if($_INSTALLATION["etape"] < $_INSTALLATION["etape-complete"]){ ?> 
+            <a href="installation.php?next" class="btn btn-primary">
+                <em>Suivant</em><object data="../assets/icons/arrow-right.svg" class="icon"></object>
+            </a>
+        <?php } ?> 
     <?php } ?>
+    </div>
 </body>
 </html>

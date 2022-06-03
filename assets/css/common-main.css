@@ -125,10 +125,7 @@ aside img{
 	align-items: flex-start;
 }
 .images img{
-	max-height:250px;
-	max-width:100%;
 	margin-top: 10px;
-	height: auto;
 	transition: all .3s ease;
 }
 

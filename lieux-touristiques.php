@@ -18,7 +18,7 @@
 		}	
 	</style>
 	<?php foreach($lieux as $lieu){ ?>
-		<section class="section">
+		<section class="section element dispo-<?= $_THEME["dispositions"][5]; ?>">
 			<h2 class="title">
 				<?= $lieu["nom"] ?>
 				<?php if(isAdminConnected()){ ?>
@@ -30,11 +30,15 @@
 					</a>
 				<?php } ?>
 			</h2>
-			<p>
-				<?= nl2br($lieu["description"]) ?>
-			</p>
-			<div class="images">
-				<img class="element-image" src="assets/images/lieux-touristiques/<?= $lieu["image"] ?>" alt="Erreur de chargement de l'image"/>
+			<div class="element-content">
+				<div class="text">
+					<p>
+						<?= nl2br($lieu["description"]) ?>
+					</p>
+				</div>
+				<div class="images">
+					<img class="element-image" src="assets/images/lieux-touristiques/<?= $lieu["image"] ?>" alt="Erreur de chargement de l'image"/>
+				</div>
 			</div>
 		</section>
 	<?php } ?>

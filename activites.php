@@ -13,7 +13,7 @@
 <?php } ?>
 <?php if(count($activites) > 0){ ?>
 	<?php foreach($activites as $activite){ ?>
-		<section class="section">
+		<section class="section element dispo-<?= $_THEME["dispositions"][3]; ?>">
 			<h2 class="title">
 				<?= $activite["nom"] ?>
 				<?php if(isAdminConnected()){ ?>
@@ -25,11 +25,15 @@
 					</a>
 				<?php } ?>
 			</h2>
-			<p>
-				<?= nl2br($activite["description"]) ?>
-			</p>
-			<div class="images">
-				<img class="element-image" src="assets/images/activites/<?= $activite["image"] ?>" alt="Erreur de chargement de l'image"/>
+			<div class="element-content">
+				<div class="text">
+					<p>
+						<?= nl2br(updateText($activite["description"])) ?>
+					</p>
+				</div>
+				<div class="images">
+					<img class="element-image" src="assets/images/activites/<?= $activite["image"] ?>" alt="Erreur de chargement de l'image"/>
+				</div>
 			</div>
 		</section>
 	<?php } ?>

@@ -83,7 +83,7 @@
 <?php if(count($personnels) > 0){ ?>
 	<section id="personnels">
 	<?php foreach($personnels as $personnel){ ?>
-		<section class="section dispo-<?= $_THEME["dispositions"][1] ?? $_THEME_DEFAUT["dispositions"][1]; ?>">
+		<section class="section element dispo-<?= $_THEME["dispositions"][1] ?>">
 			<h2 class="title">
 				<?= $personnel["nom"] ?>
 				<?php if(isAdminConnected()){ ?>

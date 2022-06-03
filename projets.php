@@ -13,7 +13,7 @@
 <?php } ?>
 <?php if(count($projets) > 0){ ?>
 	<?php foreach($projets as $projet){ ?>
-		<section class="section">
+		<section class="section element dispo-<?= $_THEME["dispositions"][2]; ?>">
 			<h2 class="title">
 				<?= $projet["nom"] ?>
 				<?php if(isAdminConnected()){ ?>
@@ -25,11 +25,15 @@
 					</a>
 				<?php } ?>
 			</h2>
-			<p>
-				<?= nl2br($projet["description"]) ?>
-			</p>
-			<div class="images">
-				<img class="element-image" src="assets/images/projets/<?= $projet["image"] ?>" alt="Erreur de chargement de l'image"/>
+			<div class="element-content">
+				<div class="text">
+					<p>
+						<?= nl2br($projet["description"]) ?>
+					</p>
+				</div>
+				<div class="images">
+					<img class="element-image" src="assets/images/projets/<?= $projet["image"] ?>" alt="Erreur de chargement de l'image"/>
+				</div>
 			</div>
 		</section>
 	<?php } ?>

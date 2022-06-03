@@ -3,6 +3,46 @@
     require "../configuration/config.php";
     require "../biblio/biblio.php";
     $_SESSION["installation"] = true;
+    $_LIENS_ETAPE_3 = [
+        "modifier-info-mairie.php?infoType=nom",
+        "modifier-info-mairie.php?infoType=historique",
+        "modifier-info-mairie.php?infoType=missions",
+    ];
+    if(isset($_GET["prev"])){//Rentre d'une étape .... prev = previous = précédent
+        if($_INSTALLATION["etape"] == 3){
+            $niveauEtape3 = $_SESSION["installation-niveau-etape-3"] ?? 0;
+
+            if($niveauEtape3 <= 0){
+                $_INSTALLATION["etape"] = 2;
+                file_put_contents(FICHIER_CONFIG_INSTALLATION, json_encode($_INSTALLATION));
+                header("Location:installation.php");
+                exit();
+            }else
+                $_SESSION["installation-niveau-etape-3"] = $niveauEtape3-1;
+        }elseif($_INSTALLATION["etape"] == 4){
+            $_INSTALLATION["etape"] = 3;
+            $_SESSION["installation-niveau-etape-3"] = $_SESSION["mode"] == 1 ? 0 : count($_LIENS_ETAPE_3) - 1;
+        }elseif($_INSTALLATION["etape"] > 1){
+            $_INSTALLATION["etape"]--;
+            file_put_contents(FICHIER_CONFIG_INSTALLATION, json_encode($_INSTALLATION));
+            header("Location:installation.php");
+            exit();
+        }
+        
+    }
+    if(isset($_GET["next"])){//Rentre d'une étape .... prev = previous = précédent
+        
+        if($_INSTALLATION["etape"] == 3){
+            $niveauEtape3 = $_SESSION["installation-niveau-etape-3"] ?? 0;
+            $_SESSION["installation-niveau-etape-3"] = $niveauEtape3+1;
+            echo $_SESSION["installation-niveau-etape-3"];
+        }elseif($_INSTALLATION["etape"] < $_INSTALLATION["etape-complete"]){
+            $_INSTALLATION["etape"]++;
+            file_put_contents(FICHIER_CONFIG_INSTALLATION, json_encode($_INSTALLATION));
+            header("Location:installation.php");
+            exit();
+        }
+    }
 
     //Détermination de l'étape de l'installation
     //Traitement des formulaires
@@ -96,27 +136,23 @@
     }
 
     if($_INSTALLATION["etape"] == 3){//
-        $_LIENS_ETAPE_3 = [
-            "modifier-info-mairie.php?infoType=nom",
-            "modifier-info-mairie.php?infoType=historique",
-            "modifier-info-mairie.php?infoType=missions",
-        ];
-        if(isset($_SESSION["installation-niveau-etape-3"]))
-            $niveauEtape3 = $_SESSION["installation-niveau-etape-3"];
-        else
-            $niveauEtape3 = $_INSTALLATION["niveau-etape-3"] ?? 0;//0 pour le premier element du tableau
-        $nombreNiveauxEtape3 = 1;
-        if($_INSTALLATION["mode"] == 2) // Installation complète
-            $nombreNiveauxEtape3 = count($_LIENS_ETAPE_3);
+        $niveauEtape3 = $_SESSION["installation-niveau-etape-3"] ?? 0;//0 pour le premier element du tableau
+        $nombreNiveauxEtape3 = $_INSTALLATION["mode"] == 1 ? 1:count($_LIENS_ETAPE_3);
         if($niveauEtape3 >= $nombreNiveauxEtape3){//Si tous les liens ont étés suivi et que les infos ont été renseignées
             $_INSTALLATION["etape"] = 4;
             unset($_SESSION["installation-niveau-etape-3"]);
+            file_put_contents(FICHIER_CONFIG_INSTALLATION, json_encode($_INSTALLATION));
+            header("Location:installation.php");
+            exit();
         }else{
             $_SESSION["installation-niveau-etape-3"] = $niveauEtape3;
             header("Location:".$_LIENS_ETAPE_3[$niveauEtape3]);
         }
     }
 
+    if($_INSTALLATION["etape"] > $_INSTALLATION["etape-complete"]+1){
+        $_INSTALLATION["etape-complete"] = $_INSTALLATION["etape"];
+    }
     //Enregistrement des modifications faites dans les fichiers de configuration
     file_put_contents(FICHIER_CONFIG_INSTALLATION, json_encode($_INSTALLATION));
     file_put_contents(FICHIER_CONFIG_MAIRIE, json_encode($_MAIRIE));

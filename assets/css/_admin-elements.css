@@ -7,7 +7,7 @@
 	color:white;
 	border-radius: 20px;
     box-shadow: 0 0 5px gray;
-	z-index:10;
+	z-index:15;
 }
 #header-admin-infos a{color:inherit}
 .btn-admin-add{
@@ -18,7 +18,7 @@
 	background:white;
 	border-radius: 20px;
     box-shadow: 0 0 5px gray;
-	z-index:10;
+	z-index:15;
 	margin: 0!important;
 }
 

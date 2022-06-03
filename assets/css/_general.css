@@ -2,7 +2,7 @@
 .icon{
     width:20px;
     display:inline-block;
-    margin-right:5px;
+    margin:0 2.5px;
 }
 
 /* Boutons */
@@ -11,6 +11,7 @@
     display:inline-block;
     vertical-align: top;
     height:100%;
+    margin:0 2.5px;
 }
 .btn .icon, button .icon{
     display:inline-block;
@@ -147,3 +148,40 @@ form input:focus{
     color:rgba(240, 100, 20, 1);
     font-weight: bold;
 }
+
+.element .element-content{
+    display:flex;
+    flex-direction: column;
+}
+.element .text{
+    padding:5px;
+}
+.element .text p{padding:0;margin:0;}
+.element .images img{
+    height:200px;
+}
+
+/* dispositions 2 et 3 */
+.element.dispo-2 .element-content, .element.dispo-3 .element-content{
+    flex-direction: row;
+}
+.element.dispo-2 .text{
+    width:59%;
+}
+
+.element.dispo-2 .images, .element.dispo-3 .images{
+    width:40%;
+}
+
+.element.dispo-2 .images img, .element.dispo-3 .images img{
+    width:100%;
+    height:auto;
+}
+
+/* Disposition 3 */
+.element.dispo-3 .text{
+    order:2
+}
+.element.dispo-3 .images{
+    order:1;
+ }

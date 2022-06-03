@@ -13,7 +13,7 @@
 <?php } ?>
 <?php if(count($publicites) > 0){ ?>
 	<?php foreach($publicites as $publicite){ ?>
-		<section class="section">
+		<section class="section element dispo-<?= $_THEME["dispositions"][6]; ?>">
 			<h2 class="title">
 				<?= $publicite["nom"] ?>
 				<?php if(isAdminConnected()){ ?>
@@ -25,11 +25,15 @@
 					</a>
 				<?php } ?>
 			</h2>
-			<p>
-				<?= nl2br($publicite["description"]) ?>
-			</p>
-			<div class="images">
-				<img class="element-image" src="assets/images/publicites/<?= $publicite["image"] ?>" alt="Erreur de chargement de l'image"/>
+			<div class="element-content">
+				<div class="text">
+					<p>
+						<?= nl2br($publicite["description"]) ?>
+					</p>
+				</div>
+				<div class="images">
+					<img class="element-image" src="assets/images/publicites/<?= $publicite["image"] ?>" alt="Erreur de chargement de l'image"/>
+				</div>
 			</div>
 		</section>
 	<?php } ?>

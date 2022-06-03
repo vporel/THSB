@@ -13,7 +13,7 @@
 <?php } ?>
 <?php if(count($annonces) > 0){ ?>
 	<?php foreach($annonces as $annonce){ ?>
-		<section class="section">
+		<section class="section element dispo-<?= $_THEME["dispositions"][4]; ?>">
 			<h2 class="title">
 				<?= $annonce["nom"] ?>
 				<?php if(isAdminConnected()){ ?>
@@ -25,11 +25,15 @@
 					</a>
 				<?php } ?>
 			</h2>
-			<p>
-				<?= nl2br($annonce["description"]) ?>
-			</p>
-			<div class="images">
-				<img class="element-image" src="assets/images/annonces/<?= $annonce["image"] ?>" alt="Erreur de chargement de l'image"/>
+			<div class="element-content">
+				<div class="text">
+					<p>
+						<?= nl2br($annonce["description"]) ?>
+					</p>
+				</div>
+				<div class="images">
+					<img class="element-image" src="assets/images/annonces/<?= $annonce["image"] ?>" alt="Erreur de chargement de l'image"/>
+				</div>
 			</div>
 		</section>
 	<?php } ?>
