@@ -11,7 +11,7 @@
     </div>
 <?php } ?>
 
-<div id="before-nav">
+<div id="before-nav" class="<?= $nomPage=="index.php" ? "accueil" : "" ?>">
     <h1>
         <?= "Mairie de ".$_MAIRIE["nom"]; ?>
         <?php if(isAdminConnected()){ ?>
@@ -25,7 +25,6 @@
     </div>
 </div>
 <nav id="navbar">
-    <div id="navbar-toggler">+</div>
     <div id="navbar-content">
         <a href="index.php" class="nav-link">Accueil</a>
         <?php 
