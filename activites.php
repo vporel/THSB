@@ -26,6 +26,7 @@
 				<?php } ?>
 			</h2>
 			<div class="element-content">
+
 				<div class="text">
 				<h3 class="badge">
 					<i> Personne en charge: </i> <?= $activite["personnesEnCharge"] ?>
@@ -33,6 +34,7 @@
 					<p>
 						<?= nl2br(updateText($activite["description"])) ?>
 					</p>
+					
 				</div>
 				<div class="images">
 					<img class="element-image" src="assets/images/activites/<?= $activite["image"] ?>" alt="Erreur de chargement de l'image"/>
