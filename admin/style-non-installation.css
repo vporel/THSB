@@ -1,7 +1,7 @@
 /*
     STYLE DE L4ADMINISTRATION LORSQU'ON N'EST PAS EN INSTALLATION
 */
-@import "../assets/css/_general.css";
+@import "../assets/css/_pages-elements.css";
 
 body{
 	font-family: sans-serif;

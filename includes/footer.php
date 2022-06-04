@@ -1,37 +1,13 @@
-<h1 id="special">Recevez chaque semaine l'actualité de votre ville</h1>
-<table id="special1">
-
-<form>
-	<input type="text" name="email" value="Email" id="mail"  required>
-	<input type="button" name="bouton" value="S'abonner" id="b">
-	
-	
-</form>
-
-
-</table>
-<p> Une question?  contactez-nous sur <a href="#">@MAIRIEJECOUTE</a> </p>
-<a href="#"> CONTACT</a>
-<a href="#"> MENTIONS LEGALES</a>
-<a href="#"> NOS PUBLICATIONS</a>
-<a href="#">RESEAUX SOCIAUX</a>
+<div id="contacts">
+	<p> Une question ?  contactez-nous </p>
+	<h4><?= $_MAIRIE["contacts"] ?? "...." ?></h4>
+	<?php if(isAdminConnected()){ ?>
+		<a href="admin/modifier-info-mairie.php?infoType=contacts" class="d-inline-block btn btn-admin-update">
+			<object data="assets/icons/edit.svg" class="icon"></object><em>Modifier les contacts</em>
+		</a>
+	<?php } ?>
+</div>
 <p>© Copyrith 2022</p>
-<style type="text/css">
-	
-	#special
-	{
-		font-family: aria;
-		font-size: 20px;
-	}
-	#special1
-	{
-		text-align: center;
-		width: 200px;
-	}
-
-
-</style>
-
 
 <?php if(!isAdminConnected()){ ?>
 	<center><a href="admin/" style="color:skyblue">Modifier le site</a></center>
