@@ -18,7 +18,7 @@
 					</a>
 				<?php } ?></h4>
                 <span><?= $annonce["date"] ?></span>
-                <h3><?= $annonce["type"] ?></h3>
+                <h3><i> type d'annonce: </i><?= $annonce["type"] ?></h3>
                 <p><?= nl2br($annonce["description"]) ?></p>
                 <img class="element-image" src="assets/images/annonces/<?= $annonce["image"] ?>" alt="Image"/>
             </article>

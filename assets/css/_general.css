@@ -141,12 +141,13 @@ footer{
 
 
 .badge{
-	background: var(----couleur-secondaire);
+	background: var(--couleur-primaire);
 	color: white;
 	display: inline-block;
 	padding: 5px;
 	border-radius: 5px;
-	font-size: 0.6em;
+	font-size: .8em;
+    margin: 0;
 }
 
 
@@ -272,6 +273,9 @@ aside img{
 .element .element-content{
     display:flex;
     flex-direction: column;
+}
+.element .title{
+    margin:5px 0;
 }
 .element .text{
     padding:5px;
