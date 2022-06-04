@@ -6,7 +6,7 @@
     <p>Vous pourrez les modifier plus tard</p>
     <?php foreach($_FONCTIONNALITES_DISPONIBLES as $index => $fonc){ ?>
     <span>
-        <input type="checkbox" name="fonctionnalites[]" id="<?= $fonc["nom"] ?>" value="<?= $index ?>" <?= ($_INSTALLATION["etape-complete"] < 4 || in_array($index, $_MAIRIE["fonctionnalites"] ?? [])) ? "checked" : "" ?>/>
+        <input type="checkbox" name="fonctionnalites[]" id="<?= $fonc["nom"] ?>" value="<?= $index ?>" <?= ($_INSTALLATION["etape-complete"] < 5 || in_array($index, $_MAIRIE["fonctionnalites"] ?? 5)) ? "checked" : "" ?>/>
         <label for="<?= $fonc["nom"] ?>"><?= $fonc["label"] ?></label>
     </span>
     <?php } ?>

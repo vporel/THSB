@@ -13,7 +13,7 @@
 
 <div id="before-nav" class="<?= $nomPage=="index.php" ? "accueil" : "" ?>">
     <h1>
-        <?= "Mairie de ".$_MAIRIE["nom"]; ?>
+        <?= "Mairie de ".($_MAIRIE["nom"] ?? ""); ?>
         <?php if(isAdminConnected()){ ?>
             <a href="admin/modifier-info-mairie.php?infoType=nom" class="btn btn-admin-update">
                 Modifier le nom

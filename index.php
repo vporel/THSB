@@ -24,7 +24,7 @@
 			</a>
 		<?php } ?>
 		<h3 style="padding:10px 0;text-align:center;color: black;font-size: 30px;"> 
-			BIENVENUE SUR LA MAIRIE DE <?php echo $_MAIRIE["nom"]; ?>
+			BIENVENUE SUR LA MAIRIE DE <?php echo $_MAIRIE["nom"] ?? "" ?>
 		</h3>
 	</section>
 	<section id="historique">
