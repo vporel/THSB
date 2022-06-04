@@ -14,7 +14,7 @@
 	?>	
 	<style type="text/css">
 		:root{
-			--couleur-primaire:<?= $_THEME["couleur-site"] ?? $_THEME_DEFAUT["couleur-site"]; ?>;
+			--couleur-primaire:<?= $_THEME["couleur-site"]; ?>;
 			--couleur-primaire-claire:<?= ($_THEME["couleur-site"] ?? $_THEME_DEFAUT["couleur-site"]). "dd"; ?>;
             --couleur-primaire-claire-2:<?= ($_THEME["couleur-site"] ?? $_THEME_DEFAUT["couleur-site"]). "bb"; ?>;
 		}

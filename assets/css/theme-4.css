@@ -1,7 +1,4 @@
 @import "./_general.css";
-@import "./_admin-elements.css";
-@import "./common-main.css";
-
 
 /* Section dans le header affichant le nom de la mairie*/
 #before-nav{
@@ -113,29 +110,6 @@ aside article .see-more{
 }
 
 aside .see-more-layout{
-	display: flex;
-	justify-content: flex-end;
 	border: 1px solid black;
-}
-
-
-footer{
-	background: rgb(40,40,40);
-	min-height: 100px;
-	padding: 15px;
-	color: rgb(200,200,200);
-	text-align: center;
-	margin-top: 10px;
-	border: 1px solid black;
-}
-
-.badge{
-	background: var(----couleur-secondaire);
-	color: white;
-	display: inline-block;
-	padding: 5px;
-	border-radius: 5px;
-	font-size: 0.6em;
-	border: 1px double black;
 }
 

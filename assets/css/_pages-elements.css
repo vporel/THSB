@@ -1,0 +1,153 @@
+/**
+    STYLE SPOUR LES ELEMENTS TELS QUE
+    BOUTONS, ICONES, CHAMPS DE FORMULAIRES
+**/
+.icon{
+    width:20px;
+    display:inline-block;
+    margin:0 2.5px;
+}
+
+/* Boutons */
+.btn em, button em{
+    font-style: normal;
+    display:inline-block;
+    vertical-align: top;
+    height:100%;
+    margin:0 2.5px;
+}
+.btn .icon, button .icon{
+    display:inline-block;
+    vertical-align: top;
+    height:100%;
+}
+.btn{
+    border:0;
+    padding:7px 10px;
+    font-size:17px;
+    transition: all .2s ease;
+    text-decoration: none;
+}
+.btn .icon{filter:invert(100%);}
+.btn-primary{
+    background:var(--couleur-primaire);
+    color:white;
+}
+.btn-primary:hover{
+    background:var(--couleur-primaire-claire)!important;
+}
+
+.btn-bad{
+    background:rgba(200,0,0, .8)!important;
+    color:white;
+}
+.btn-bad:hover{
+    background:rgba(200,0,0, 1)!important;
+}
+
+/* Boutons pour l'administrateur */
+.btn-admin-add{
+    background:rgb(0, 70, 255)!important;
+    color:white;
+    cursor: pointer;
+    text-shadow:1px 1px 2px black;
+    font-weight:bold;
+}
+.btn-admin-add:hover{
+    background:rgb(0, 90, 255)!important;
+}
+.btn-admin-update{
+    padding:4px 7px!important;
+    background:rgba(0,150,0, .8)!important;
+    text-shadow:1px 1px 2px black;
+    font-weight:bold;
+    color:white;
+    cursor: pointer;
+}
+.btn-admin-update:hover{
+    background:rgba(0,150,0, 1)!important;
+}
+
+.btn-admin-delete{
+    padding:4px 7px!important;
+    background:rgba(200,0,0, .8)!important;
+    text-shadow:1px 1px 2px black;
+    font-weight:bold;
+    color:white;
+    cursor: pointer;
+}
+.btn-admin-delete:hover{
+    background:rgba(200,0,0, 1)!important;
+}
+
+.btns{
+    text-align:right;
+    margin-top:5px;
+}
+
+.pos-absolute{
+    position:absolute;
+    z-index:5;
+}
+
+
+.d-block{
+	display:block;
+}
+
+.d-inline-block{
+	display:inline-block;
+}
+
+/* Formulaires */
+form{
+    padding:10px;
+}
+form span{
+    display:block;
+}
+form label{
+    display:block;
+    margin-top:10px;
+    margin-bottom:5px;
+    font-size:14px;
+}
+form input[type=text],
+form input[type=date],
+form textarea,
+form select,
+form input[type=password]{
+    display: block;
+    max-width: 100%;
+    min-width:100%;
+    border:1px solid lightgray;
+    border-radius:5px;
+    min-height:30px;
+    font-family: sans-serif;
+}
+
+form textarea{
+    height:100px;
+}
+
+form textarea:hover,
+form textarea:focus,
+form select:hover,
+form select:focus,
+form input:hover,
+form input:focus{
+    border-color:var(--couleur-primaire);
+    color : var(--couleur-primaire);
+}
+
+/* Alertes */
+.alert{
+    padding:15px;
+    border: 1px solid;
+    border-radius:5px;
+}
+.alert-warning{
+    background:rgba(255, 100, 0, .2);
+    color:rgba(240, 100, 20, 1);
+    font-weight: bold;
+}
