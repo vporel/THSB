@@ -17,8 +17,8 @@
                         <object data="assets/icons/trash.svg" class="icon"></object><em>Supprimer</em>
 					</a>
 				<?php } ?></h4>
-                <span><?= $annonce["date"] ?></span>
-                <h3><i> type d'annonce: </i><?= $annonce["type"] ?></h3>
+                <span style="display:block;text-align:right"><?= $annonce["date"] ?></span>
+                <h3 class="badge"><i>Type d'annonce : </i><?= $annonce["type"] ?></h3>
                 <p><?= nl2br($annonce["description"]) ?></p>
                 <img class="element-image" src="assets/images/annonces/<?= $annonce["image"] ?>" alt="Image"/>
             </article>
@@ -48,8 +48,8 @@
                         </a>
                     <?php } ?>
                 </h4>
-                <span><?= $publicite["date"] ?></span>
-                <h3><?= $publicite["contacts"] ?></h3>
+                <span style="display:block;text-align:right"><?= $publicite["date"] ?></span>
+                <h3 class="badge"><?= $publicite["contacts"] ?></h3>
                 <p><?= nl2br($publicite["description"]) ?></p>
                 <img class="element-image" src="assets/images/publicites/<?= $publicite["image"] ?>" alt="Image"/>
             </article>
