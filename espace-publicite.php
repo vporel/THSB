@@ -25,21 +25,13 @@
 					</a>
 				<?php } ?>
 			</h2>
-<<<<<<< HEAD
-			<h3>
-				<?= $publicite["contacts"] ?>
-				
-				
-			</h3>
-		
-			<p>
-				<?= nl2br($publicite["description"]) ?>
-			</p>
-			<div class="images">
-				<img class="element-image" src="assets/images/publicites/<?= $publicite["image"] ?>" alt="Erreur de chargement de l'image"/>
-=======
 			<div class="element-content">
 				<div class="text">
+					<h3>
+					<?= $publicite["contacts"] ?>
+						
+						
+					</h3>
 					<p>
 						<?= nl2br($publicite["description"]) ?>
 					</p>
@@ -47,7 +39,6 @@
 				<div class="images">
 					<img class="element-image" src="assets/images/publicites/<?= $publicite["image"] ?>" alt="Erreur de chargement de l'image"/>
 				</div>
->>>>>>> 59d7fafd802cf99065ef788f052498f5e58cef6d
 			</div>
 		</section>
 	<?php } ?>

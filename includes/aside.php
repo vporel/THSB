@@ -18,6 +18,7 @@
 					</a>
 				<?php } ?></h4>
                 <span><?= $annonce["date"] ?></span>
+                <h3><?= $annonce["type"] ?></h3>
                 <p><?= nl2br($annonce["description"]) ?></p>
                 <img class="element-image" src="assets/images/annonces/<?= $annonce["image"] ?>" alt="Image"/>
             </article>
@@ -48,6 +49,7 @@
                     <?php } ?>
                 </h4>
                 <span><?= $publicite["date"] ?></span>
+                <h3><?= $publicite["contacts"] ?></h3>
                 <p><?= nl2br($publicite["description"]) ?></p>
                 <img class="element-image" src="assets/images/publicites/<?= $publicite["image"] ?>" alt="Image"/>
             </article>

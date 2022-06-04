@@ -32,6 +32,10 @@
 			</h2>
 			<div class="element-content">
 				<div class="text">
+				<h3>
+					<?= $lieu["adresse"] ?>
+			
+			</h3>
 					<p>
 						<?= nl2br($lieu["description"]) ?>
 					</p>
