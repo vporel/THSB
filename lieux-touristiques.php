@@ -8,7 +8,7 @@
 <?php ob_start(); ?>
 <?php if(isAdminConnected()){ ?>
 	<a href="admin/ajouter.php?elementType=lieuTouristique" class="d-block btn btn-admin-add" style="margin:10px 0;">
-		Ajouter un lieu touristique
+		<object data="assets/icons/plus.svg" class="icon"></object><em>Ajouter un lieu touristique</em>
 	</a>
 <?php } ?>
 <?php if(count($lieux) > 0){ ?>
@@ -18,23 +18,27 @@
 		}	
 	</style>
 	<?php foreach($lieux as $lieu){ ?>
-		<section class="section">
+		<section class="section element dispo-<?= $_THEME["dispositions"][5]; ?>">
 			<h2 class="title">
 				<?= $lieu["nom"] ?>
 				<?php if(isAdminConnected()){ ?>
 					<a href="admin/modifier.php?elementType=lieuTouristique&id=<?= $lieu["id"] ?>" class="d-inline-block btn btn-admin-update">
-						Modifier
+						<object data="assets/icons/edit.svg" class="icon"></object><em>Modifier</em>
 					</a>
 					<a href="admin/supprimer.php?elementType=lieuTouristique&id=<?= $lieu["id"] ?>" class="d-inline-block btn btn-admin-delete">
-						Supprimer
+						<object data="assets/icons/trash.svg" class="icon"></object><em>Supprimer</em>
 					</a>
 				<?php } ?>
 			</h2>
-			<p>
-				<?= nl2br($lieu["description"]) ?>
-			</p>
-			<div class="images">
-				<img class="element-image" src="assets/images/lieux-touristiques/<?= $lieu["image"] ?>" alt="Erreur de chargement de l'image"/>
+			<div class="element-content">
+				<div class="text">
+					<p>
+						<?= nl2br($lieu["description"]) ?>
+					</p>
+				</div>
+				<div class="images">
+					<img class="element-image" src="assets/images/lieux-touristiques/<?= $lieu["image"] ?>" alt="Erreur de chargement de l'image"/>
+				</div>
 			</div>
 		</section>
 	<?php } ?>

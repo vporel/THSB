@@ -1,13 +1,17 @@
 <?php 
     require "./head.php";
-    if(!isAdminConnected()){
+    if(!$installation && !isAdminConnected()){
         header("Location:index.php");
         exit();
     }
-    if(isset($_POST["couleur-site"])){
+    if(isset($_POST["couleur-site"])){ //Formulaire de modification du theme envoyé
         $_THEME["couleur-site"] = $_POST["couleur-site"];
         $_THEME["couleur-admin"] = $_POST["couleur-admin"];
         $_THEME["numero"] = $_POST["numero-theme"];
+        foreach($_FONCTIONNALITES_DISPONIBLES as $index => $fonc){ 
+            echo $index;
+            $_THEME["dispositions"][$index] = $_POST["disposition-$index"];
+        }
         file_put_contents(FICHIER_CONFIG_THEME, json_encode($_THEME));
         header("Location:../index.php");
         exit();
@@ -22,8 +26,11 @@
         .theme-image{
             max-height:200px;
         }
-        .dispo-span *{
+        .dispo-span{
             display: inline-block;
+        }
+        .dispo-span *{
+            display: block;
         }
     </style>
     <form method="post">
@@ -50,16 +57,16 @@
             <summary style="cursor:pointer">Disposition des elements</summary>
             <?php 
                 foreach($_FONCTIONNALITES_DISPONIBLES as $index => $fonc){ 
-                    $nbDispositions = ($index == 1) ? 2 : 4;
+                    $nbDispositions = ($index == 1) ? 2 : 3;
                 ?>
                 <fieldset>
                     <legend><?= $fonc["label"] ?></legend>
-                    <center class="dispo-span">
                     <?php for($i=1;$i<=$nbDispositions;$i++){ ?>
-                        <input type="radio" name="disposition-<?= $index ?>" id="dispo-<?= $index ?>-<?= $i ?>" value="<?= $i ?>" <?= $dispos[$index] == $i ? "checked" : "" ?>/>
-                        <label for="dispo-<?= $index ?>-<?= $i ?>" ><img src="../assets/images/dispositions/<?= $i ?>.jpg" alt="Disposition <?= $i ?>" class="theme-image"></label>
+                        <center class="dispo-span">
+                            <label for="dispo-<?= $index ?>-<?= $i ?>" ><img src="../assets/images/dispositions/<?= $i ?><?= $index == 1 ? "-personnel" : "" ?>.jpg" alt="Disposition <?= $i ?>" class="theme-image"></label>
+                            <input type="radio" name="disposition-<?= $index ?>" id="dispo-<?= $index ?>-<?= $i ?>" value="<?= $i ?>" <?= $dispos[$index] == $i ? "checked" : "" ?>/>
+                        </center>
                     <?php } ?>
-                </center>
                 </fieldset>
             <?php } ?>
         </details>

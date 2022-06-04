@@ -24,7 +24,7 @@
     $form = generateForm($elementType, $element, "update");
     if(isset($_POST["form-submit"])){
         try{
-            if(update($elementType, $idElement, $_POST)){
+            if(update($elementType, $idElement, parseFormData($elementType, true))){
                 $message = "Elément modifié avec succès";
             }else{
                 $message = "Echec de la modification";
@@ -38,5 +38,12 @@
 ?>
 <?php $_TITLE = "Modifier | ".ucfirst($elementType)." | ".$element["nom"]." | THBS"; ?>
 <?php $_PAGE_TITLE = "Modifier | ".ucfirst($elementType)." | ".$element["nom"] ?>
-<?php $_CONTENT = $form.'<center><a href="../'.$elementSchema->getPage().'">Retourner à la page</a></center>' ?>
+<?php ob_start() ?>
+    <form method="POST" enctype="multipart/form-data">
+        <?= $form ?>
+        <div class="btns">
+            <button type="submit" class="btn btn-primary" name="form-submit"><object data="../assets/icons/edit.svg" class="icon"></object><em>Modifier</em></button>
+        </div>
+    </form>
+<?php $_CONTENT = ob_get_clean(); ?>
 <?php require "base.php"; ?>

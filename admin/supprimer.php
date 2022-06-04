@@ -41,7 +41,9 @@
         </p>
         </center>
         <div class="btns">
-            <button type="submit" class="btn btn-bad" name="supprimer">Supprimer</button>
+            <button type="submit" class="btn btn-bad" name="supprimer">
+                <object data="../assets/icons/trash.svg" class="icon"></object><em>Supprimer</em>
+            </button>
         </div>
     </form>
 <?php $_CONTENT = ob_get_clean() ?>

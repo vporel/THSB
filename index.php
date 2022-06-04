@@ -20,29 +20,33 @@
 		<?php } ?>
 		<?php if(isAdminConnected()){ ?>
 			<a href="admin/modifier-info-mairie.php?infoType=image" class="d-block btn btn-admin-update">
-				Modifier l'image
+				<object data="assets/icons/edit.svg" class="icon"></object><em>Modifier l'image</em>
 			</a>
 		<?php } ?>
-		<h3 style="margin-top: 30px;text-align:center;color: black;font-size: 30px;animation: titleShow 1s forwards;"> 
+		<h3 style="padding:10px 0;text-align:center;color: black;font-size: 30px;"> 
 			BIENVENUE SUR LA MAIRIE DE <?php echo $_MAIRIE["nom"]; ?>
 		</h3>
+	</section>
+	<section id="historique">
 		<h3 class="title">
 			Historique
 			<?php if(isAdminConnected()){ ?>
 				<a href="admin/modifier-info-mairie.php?infoType=historique" class="d-inline-block btn btn-admin-update">
-					Modifier
+					<object data="assets/icons/edit.svg" class="icon"></object><em>Modifier</em>
 				</a>
 				
 			<?php } ?>
 		</h3>
 		<p>
-			<?= nl2br($_MAIRIE["historique"]) ?>
+			<?= nl2br(updateText($_MAIRIE["historique"] ?? "")) ?>
 		</p>
+	</section>
+	<section id="conseil-municipal">
 		<h3 class="title"> 
 			Conseil Municipal
 			<?php if(isAdminConnected()){ ?>
 				<a href="admin/ajouter.php?elementType=conseiller" class="d-inline-block btn btn-admin-update">
-					Ajouter un conseiller
+					<object data="assets/icons/plus.svg" class="icon"></object><em>Ajouter un conseiller</em>
 				</a>
 				
 			<?php } ?>
@@ -57,10 +61,10 @@
 						<?= $conseiller["nom"] ?>
 						<?php if(isAdminConnected()){ ?>
 							<a href="admin/modifier.php?elementType=conseiller&id=<?= $conseiller["id"] ?>" class="d-inline-block btn btn-admin-update">
-								Modifier
+								<object data="assets/icons/edit.svg" class="icon"></object><em>Modifier</em>
 							</a>
 							<a href="admin/supprimer.php?elementType=conseiller&id=<?= $conseiller["id"] ?>" class="d-inline-block btn btn-admin-delete">
-								Supprimer
+								<object data="assets/icons/trash.svg" class="icon"></object><em>Supprimer</em>
 							</a>
 						<?php } ?>
 					</h4>
@@ -73,19 +77,20 @@
 		<?php }else{ ?>
 			<div class="alert alert-warning">Aucun conseiller enregistré</div>
 		<?php } ?>
-
+	</section>
+	<section class="section"id="missions">
 		<h3 class="title">
 			 Missions de la mairie
 			 <?php if(isAdminConnected()){ ?>
 				<a href="admin/modifier-info-mairie.php?infoType=missions" class="d-inline-block btn btn-admin-update">
-					Modifier
+					<object data="assets/icons/edit.svg" class="icon"></object><em>Modifier</em>
 				</a>
 				
 			<?php } ?>
 
 		</h3>
 		<p>
-			<?= nl2br($_MAIRIE["missions"]) ?>
+			<?= nl2br(updateText($_MAIRIE["missions"] ?? "")) ?>
 		</p>
 	</section>
 

@@ -15,11 +15,14 @@
     <h1>
         <?= "Mairie de ".$_MAIRIE["nom"]; ?>
         <?php if(isAdminConnected()){ ?>
-            <a href="admin/modifier-info-mairie.php?infoType=nom" class="admin-element btn btn-admin-update" style="right:5px;">
-                Modifier
+            <a href="admin/modifier-info-mairie.php?infoType=nom" class="btn btn-admin-update">
+                Modifier le nom
             </a>
         <?php } ?>
     </h1>
+    <div id="nb-visiteurs">
+        <span><?php echo $nbVisiteurs; ?></span> visiteur<?= $nbVisiteurs > 1 ? "s": ""; ?> sur cette page
+    </div>
 </div>
 <nav id="navbar">
     <div id="navbar-toggler">+</div>
@@ -36,7 +39,7 @@
         ?>
         <?php if(isAdminConnected()){ ?>
             <a href="admin/choix-fonctionnalites.php" class="pos-absolute admin-element btn btn-admin-update" style="right:5px;">
-                Modifier
+                <object data="assets/icons/edit.svg" class="icon"></object><em>Choisir les pages</em>
             </a>
         <?php } ?>
     </div>

@@ -8,23 +8,24 @@
 <?php ob_start(); ?>
 <?php if(isAdminConnected()){ ?>
 	<a href="admin/ajouter.php?elementType=publicite" class="d-block btn btn-admin-add" style="margin:10px 0;">
-		Ajouter une publicité
+		<object data="assets/icons/plus.svg" class="icon"></object><em>Ajouter un publicité</em>
 	</a>
 <?php } ?>
 <?php if(count($publicites) > 0){ ?>
 	<?php foreach($publicites as $publicite){ ?>
-		<section class="section">
+		<section class="section element dispo-<?= $_THEME["dispositions"][6]; ?>">
 			<h2 class="title">
 				<?= $publicite["nom"] ?>
 				<?php if(isAdminConnected()){ ?>
 					<a href="admin/modifier.php?elementType=publicite&id=<?= $publicite["id"] ?>" class="d-inline-block btn btn-admin-update">
-						Modifier
+						<object data="assets/icons/edit.svg" class="icon"></object><em>Modifier</em>
 					</a>
 					<a href="admin/supprimer.php?elementType=publicite&id=<?= $publicite["id"] ?>" class="d-inline-block btn btn-admin-delete">
-						Supprimer
+						<object data="assets/icons/trash.svg" class="icon"></object><em>Supprimer</em>
 					</a>
 				<?php } ?>
 			</h2>
+<<<<<<< HEAD
 			<h3>
 				<?= $publicite["contacts"] ?>
 				
@@ -36,6 +37,17 @@
 			</p>
 			<div class="images">
 				<img class="element-image" src="assets/images/publicites/<?= $publicite["image"] ?>" alt="Erreur de chargement de l'image"/>
+=======
+			<div class="element-content">
+				<div class="text">
+					<p>
+						<?= nl2br($publicite["description"]) ?>
+					</p>
+				</div>
+				<div class="images">
+					<img class="element-image" src="assets/images/publicites/<?= $publicite["image"] ?>" alt="Erreur de chargement de l'image"/>
+				</div>
+>>>>>>> 59d7fafd802cf99065ef788f052498f5e58cef6d
 			</div>
 		</section>
 	<?php } ?>

@@ -1,0 +1,79 @@
+/*
+    STYLE DE L4ADMINISTRATION LORSQU'ON N'EST PAS EN INSTALLATION
+*/
+@import "../assets/css/_general.css";
+
+body{
+	font-family: sans-serif;
+    padding:0;
+    margin:0;
+    background: white;
+    color:rgb(70,70,70);
+}
+
+#page{
+    background:white;
+    width:60%;
+    margin:auto;
+}
+
+header {
+    text-align: center;
+    background:radial-gradient(var(--couleur-primaire-claire-2), var(--couleur-primaire));
+    position:fixed;
+    width:100%;
+    left:0;
+    top:0;
+    padding:10px 0;
+    z-index:20;
+    box-shadow:0 2px 3px black;
+}
+header h2{
+    color:white;
+    text-shadow: 1px 1px 1px black;
+    margin:0;
+}
+header p{
+    color:black;
+}
+#content{
+    margin-top:150px;
+    padding-bottom:60px;
+}
+h3{
+    color:black;
+    text-align:center;
+    margin:5px 0;
+}
+
+.asterisque{
+    color:red;
+}
+
+#liens-pied{
+    position: fixed;
+    width:100%;
+    left:0;
+    display:flex;
+    justify-content: center;
+    bottom:10px;
+    z-index:5;
+}
+#liens-pied a{
+    text-decoration: none;
+    border-radius:20px;
+    background:var(--couleur-primaire);
+    margin:5px;
+    padding:7px 10px;
+    box-shadow: 0 0 4px black;
+    color:white;
+}
+form{
+    position:relative;
+}
+form button[type="submit"]{
+    position:absolute;
+    z-index:10;
+    right:5px;
+    bottom:-25px;
+}

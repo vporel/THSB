@@ -8,28 +8,32 @@
 <?php ob_start(); ?>
 <?php if(isAdminConnected()){ ?>
 	<a href="admin/ajouter.php?elementType=annonce" class="d-block btn btn-admin-add" style="margin:10px 0;">
-		Ajouter une annonce
+		<object data="assets/icons/plus.svg" class="icon"></object><em>Ajouter annonce</em>
 	</a>
 <?php } ?>
 <?php if(count($annonces) > 0){ ?>
 	<?php foreach($annonces as $annonce){ ?>
-		<section class="section">
+		<section class="section element dispo-<?= $_THEME["dispositions"][4]; ?>">
 			<h2 class="title">
 				<?= $annonce["nom"] ?>
 				<?php if(isAdminConnected()){ ?>
 					<a href="admin/modifier.php?elementType=annonce&id=<?= $annonce["id"] ?>" class="d-inline-block btn btn-admin-update">
-						Modifier
+						<object data="assets/icons/edit.svg" class="icon"></object><em>Modifier</em>
 					</a>
 					<a href="admin/supprimer.php?elementType=annonce&id=<?= $annonce["id"] ?>" class="d-inline-block btn btn-admin-delete">
-						Supprimer
+						<object data="assets/icons/trash.svg" class="icon"></object><em>Supprimer</em>
 					</a>
 				<?php } ?>
 			</h2>
-			<p>
-				<?= nl2br($annonce["description"]) ?>
-			</p>
-			<div class="images">
-				<img class="element-image" src="assets/images/annonces/<?= $annonce["image"] ?>" alt="Erreur de chargement de l'image"/>
+			<div class="element-content">
+				<div class="text">
+					<p>
+						<?= nl2br($annonce["description"]) ?>
+					</p>
+				</div>
+				<div class="images">
+					<img class="element-image" src="assets/images/annonces/<?= $annonce["image"] ?>" alt="Erreur de chargement de l'image"/>
+				</div>
 			</div>
 		</section>
 	<?php } ?>
