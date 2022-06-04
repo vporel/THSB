@@ -27,13 +27,18 @@
 			</h2>
 			<div class="element-content">
 				<div class="text">
+					
 					<p>
 						<?= nl2br($annonce["description"]) ?>
 					</p>
+					<h3>
+					    <?= nl2br($annonce["type"]) ?>
+				    </h3>
 				</div>
 				<div class="images">
 					<img class="element-image" src="assets/images/annonces/<?= $annonce["image"] ?>" alt="Erreur de chargement de l'image"/>
 				</div>
+				
 			</div>
 		</section>
 	<?php } ?>
