@@ -24,12 +24,19 @@
 						<object data="assets/icons/trash.svg" class="icon"></object><em>Supprimer</em>
 					</a>
 				<?php } ?>
+				<span class="date"> <?= $publicite["date"] ?> </span>
 			</h2>
 			<div class="element-content">
 				<div class="text">
+					<h3 class="badge">
+					<?= $publicite["contacts"] ?>
+						
+						
+					</h3>
 					<p>
 						<?= nl2br($publicite["description"]) ?>
 					</p>
+				
 				</div>
 				<?php if($publicite["image"] != null) { ?>
 					<div class="images">

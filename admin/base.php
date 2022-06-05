@@ -40,6 +40,10 @@
             <h5>Membres de l'équipe</h5>
             <ol>
                 <li>NKOUANANG KEPSEU VIVIAN POREL - 20U2668 <i>(Chef du groupe)</i></li>
+                <li>BELEK A EKITE FLEURETTE       - 18T2392</li>
+                <li>NGOTAGUA YONKEU SYNTHIA       - 20U2636</li>
+                <li>ABDELAZIZ MAHAMAT LOUKY      - 18T2916</li>
+
             </ol>
         <?php } ?> 
     </div>

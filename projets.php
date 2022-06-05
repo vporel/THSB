@@ -27,6 +27,10 @@
 			</h2>
 			<div class="element-content">
 				<div class="text">
+				<h3 class="badge">
+					<i> Personne en charge: </i>
+					<?= $projet["personnesEnCharge"] ?>
+				</h3>
 					<p>
 						<?= nl2br($projet["description"]) ?>
 					</p>
