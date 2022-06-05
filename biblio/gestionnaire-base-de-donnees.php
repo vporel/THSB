@@ -1,6 +1,4 @@
 <?php
-$_BDD = null;
-
 
 require_once __DIR__."/../classes/ElementSchema.php";
 require_once __DIR__."/../classes/FileUpload.php";
@@ -8,10 +6,10 @@ require_once __DIR__."/../classes/FileUploadException.php";
 require_once __DIR__."/../classes/DBManagerException.php";
 require_once __DIR__."/../model.php";
 
+$_BDD = null;
 function connectDB():?PDO
 {
     global $_BDD;
-    global $_MAIRIE;
     if($_BDD == null){
         try{
             /*
@@ -194,7 +192,7 @@ function createTable($bdd, ElementSchema $elementSchema)
     $query = "
         CREATE TABLE IF NOT EXISTS ".$elementSchema->getTable()."(
             id INTEGER PRIMARY KEY
-        "; // Sur sqlite, autoincrement est en un mot
+        ";
         
     $fieldsQueryParts = [];
     foreach($elementSchema->getProperties() as $property){

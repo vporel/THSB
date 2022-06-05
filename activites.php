@@ -31,9 +31,11 @@
 						<?= nl2br(updateText($activite["description"])) ?>
 					</p>
 				</div>
-				<div class="images">
-					<img class="element-image" src="assets/images/activites/<?= $activite["image"] ?>" alt="Erreur de chargement de l'image"/>
-				</div>
+				<?php if($activite["image"] != null) { ?>
+					<div class="images">
+						<img class="element-image" src="assets/images/activites/<?= $activite["image"] ?>" alt="Erreur de chargement de l'image"/>
+					</div>
+				<?php } ?>
 			</div>
 		</section>
 	<?php } ?>

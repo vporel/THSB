@@ -36,9 +36,11 @@
 						<?= nl2br($lieu["description"]) ?>
 					</p>
 				</div>
-				<div class="images">
-					<img class="element-image" src="assets/images/lieux-touristiques/<?= $lieu["image"] ?>" alt="Erreur de chargement de l'image"/>
-				</div>
+				<?php if($lieu["image"] != null) { ?>
+					<div class="images">
+						<img class="element-image" src="assets/images/lieux-touristiques/<?= $lieu["image"] ?>" alt="Erreur de chargement de l'image"/>
+					</div>
+				<?php } ?>
 			</div>
 		</section>
 	<?php } ?>

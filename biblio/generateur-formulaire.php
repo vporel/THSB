@@ -11,7 +11,7 @@ require_once __DIR__."/gestionnaire-model.php";
  * 
  * @return [type]
  */
-function generateForm(string $elementType, $values = [], string $formType){
+function generateForm(string $elementType, $values = [], string $formType = "add"){
     $elementSchema = getElementSchema($elementType);
     $formType = strtolower($formType);
     $html = '';
@@ -71,6 +71,8 @@ function parseFormData(string $elementType, bool $ignoreMissingFiles = false){
         if($property instanceof FileProperty){
             try{
                 $value = FileUpload::upload($propertyName, $property->getFolder(), $property->getExtensions());
+                
+                $data[$propertyName] = $value;
             }catch(FileUploadException $e){
                 if($e->getCode() == FileUploadException::FILE_NOT_RECEIVED){    
                     if(!$ignoreMissingFiles && !$property->isNullable())           
@@ -82,14 +84,13 @@ function parseFormData(string $elementType, bool $ignoreMissingFiles = false){
         }elseif($property instanceof EnumProperty){
             //Pour ce champ la valeur dans $_POST est un tableau
             $value = (count($value) > 1 && $value[1] != "") ? $value[1] : $value[0];
-        }
-        if($value === null){
-            
-            if(!$property->isNullable()){
+        }else{
+            if($value === null && !$property->isNullable()){
                 throw new DBManagerException("La valeur pour la propriété $propertyName ne peut être nulle");
+                
             }
+            $data[$propertyName] = $value;
         }
-        $data[$propertyName] = $value;
     }
     return $data;
 
