@@ -23,9 +23,8 @@
                 </div>
 
                 <span style="display:block;text-align:right"><?= $annonce["date"] ?></span>
-                <h3 class="badge"><i>Type d'annonce : </i><?= $annonce["type"] ?></h3>
+                <h3 class="badge"><i>Type : </i><?= $annonce["type"] ?></h3>
                 <p><?= nl2br($annonce["description"]) ?></p>
-                <p><?= nl2br($annonce["type"]) ?></p>
                 <img class="element-image" src="assets/images/annonces/<?= $annonce["image"] ?>" alt="Image"/>
             </article>
         <?php } ?>
@@ -58,7 +57,7 @@
                     <?php } ?>
                 </div>
                 <span style="display:block;text-align:right"><?= $publicite["date"] ?></span>
-                <h3 class="badge"><?= $publicite["contacts"] ?></h3>
+                <h3 class="badge">Contacts : <?= $publicite["contacts"] ?></h3>
                 <p><?= nl2br($publicite["description"]) ?></p>
                   
                 <img class="element-image" src="assets/images/publicites/<?= $publicite["image"] ?>" alt="Image"/>
