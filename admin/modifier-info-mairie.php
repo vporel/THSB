@@ -5,7 +5,7 @@
         exit();
     }
     $infoType = $_GET["infoType"] ?? null;
-    if($infoType == null || !in_array($infoType, ["nom", "historique", "missions", "image"])){
+    if($infoType == null || !in_array($infoType, ["nom", "historique", "missions", "image", "contacts"])){
         echo "La requête n'a pas pu être traitée. Le type d'info n'est pas reconnu <br><a href='../index.php'>Retourner au site</a>";
         exit();
     }
@@ -48,7 +48,7 @@
         <input type="hidden" name="modifier-info-mairie">
         <span>
             <label for="info-valeur"><?= ucfirst($infoType) ?></label>
-            <?php if($infoType == "nom"){ ?>
+            <?php if(in_array($infoType, ["nom", "contacts"])){ ?>
                 <input type="text" name="info-valeur" id="info-valeur" value="<?= $infoValeur ?>"/>
             
             <?php }elseif($infoType == "image"){ ?>

@@ -27,16 +27,18 @@
 			</h2>
 			<div class="element-content">
 				<div class="text">
-               <h3>
-					<?= $annonce["type"] ?>
-				</h3>
+		<h3 class="badge"><i> Type d'annonce:</i> <?=$annonce["type"] ?></h3>
+
+
 					<p>
 						<?= nl2br($annonce["description"]) ?>
 					</p>
 				</div>
-				<div class="images">
-					<img class="element-image" src="assets/images/annonces/<?= $annonce["image"] ?>" alt="Erreur de chargement de l'image"/>
-				</div>
+				<?php if($annonce["image"] != null) { ?>
+					<div class="images">
+						<img class="element-image" src="assets/images/annonces/<?= $annonce["image"] ?>" alt="Erreur de chargement de l'image"/>
+					</div>
+				<?php } ?>
 			</div>
 		</section>
 	<?php } ?>

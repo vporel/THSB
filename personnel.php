@@ -57,11 +57,11 @@
 		order: 3;
 		margin: 3px 0;
 		font-size: 18px;;
-		text-align: center;
+		text-align: left;
 	}
 	#personnels p{
 		order: 4;
-		text-align: center;
+		text-align: left;
 		margin: 5px 0;
 	}
 	#personnels .btn{
@@ -86,6 +86,7 @@
 		<section class="section element dispo-<?= $_THEME["dispositions"][1] ?>">
 			<h2 class="title">
 				<?= $personnel["nom"] ?>
+				<div class="btns">
 				<?php if(isAdminConnected()){ ?>
 					<a href="admin/modifier.php?elementType=personnel&id=<?= $personnel["id"] ?>" class="d-inline-block btn btn-admin-update">
 						<object data="assets/icons/edit.svg" class="icon"></object><em>Modifier</em>
@@ -94,6 +95,7 @@
 						<object data="assets/icons/trash.svg" class="icon"></object><em>Supprimer</em>
 					</a>
 				<?php } ?>
+				</div>
 			</h2>
 			<h3 class="poste">
 				<?= $personnel["poste"] ?>
@@ -102,7 +104,7 @@
 				<?= nl2br($personnel["parcours"]) ?>
 				<br>
 
-				<object data="assets/icons/link.svg" class="icon"></object><a href="assets/cv-personnels/<?= $personnel["cv"] ?>" download>Télécharger le CV</a>
+				<span class="cv"style="text-align:right;display:block"><object data="assets/icons/link.svg" class="icon"></object><a href="assets/cv-personnels/<?= $personnel["cv"] ?>" download>Télécharger le CV</a></span>
 			</p>
 			<div class="images">
 				<img class="element-image" src="assets/images/personnels/<?= $personnel["photo"] ?>" alt="Erreur de chargement de l'image"/>

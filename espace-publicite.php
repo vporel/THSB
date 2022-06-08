@@ -24,18 +24,29 @@
 						<object data="assets/icons/trash.svg" class="icon"></object><em>Supprimer</em>
 					</a>
 				<?php } ?>
+				<span class="date"> <?= $publicite["date"] ?> </span>
 			</h2>
 			<div class="element-content">
 				<div class="text">
+
 
 				<h3>
 				<?= $publicite["contacts"] ?>
 
 				</h3>
+
+					<h3 class="badge">
+						<i>Contact :</i> <?= $publicite["contacts"] ?>
+						
+						
+					</h3>
+
 					<p>
 						<?= nl2br($publicite["description"]) ?>
 					</p>
+				
 				</div>
+
 				<div class="images">
 					<img class="element-image" src="assets/images/publicites/<?= $publicite["image"] ?>" alt="Erreur de chargement de l'image"/>
 			
@@ -45,6 +56,13 @@
 					
 				</div>
 				
+
+				<?php if($publicite["image"] != null) { ?>
+					<div class="images">
+						<img class="element-image" src="assets/images/publicites/<?= $publicite["image"] ?>" alt="Erreur de chargement de l'image"/>
+					</div>
+				<?php } ?>
+
 			</div>
 		</section>
 	<?php } ?>
