@@ -123,14 +123,16 @@ function save(string $elementType, array $data):?string
     $elementSchema = getElementSchema($elementType);
     $questionMarks = [];
     $values = [];
-    foreach($data as $value){
-        $questionMarks[] = "?";
-        $values[] = $value;
+    $propertiesNames = [];
+    foreach($data as $key => $value){
+        if(in_array($key, array_keys($elementSchema->getProperties()))){
+            $propertiesNames[] = $key;
+            $questionMarks[] = "?";
+            $values[] = $value;
+        }
     }
-    $propertiesNames = array_keys($elementSchema->getProperties());
     $query = "INSERT INTO ".$elementSchema->getTable()."(".implode(", ", $propertiesNames).") VALUES(".implode(", ",$questionMarks).")";
     
-
     $bdd = connectDB();
     $req = $bdd->prepare($query);
     $req->execute($values);
@@ -150,8 +152,10 @@ function update(string $elementType, int $idElement, array $data):bool
     $updates = [];
     $values = [];
     foreach($data as $propertyName => $value){
-        $updates[] = "$propertyName = ?";
-        $values[] = $value;
+        if(in_array($propertyName, array_keys($elementSchema->getProperties()))){
+            $updates[] = "$propertyName = ?";
+            $values[] = $value;
+        }
     }
     $query = "UPDATE ".$elementSchema->getTable()." SET ".implode(", ",$updates)." WHERE id = $idElement";
     $bdd = connectDB();

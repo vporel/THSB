@@ -272,6 +272,14 @@ aside img{
 	color: white;
 }
 
+.element .btns, .btns-element{
+	display:flex;
+	justify-content: center;
+}
+.element .btns a, .btns-element a{
+	margin:5px;
+}
+
 .element .element-content{
     display:flex;
     flex-direction: column;

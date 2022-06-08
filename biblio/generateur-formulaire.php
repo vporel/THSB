@@ -84,6 +84,7 @@ function parseFormData(string $elementType, bool $ignoreMissingFiles = false){
         }elseif($property instanceof EnumProperty){
             //Pour ce champ la valeur dans $_POST est un tableau
             $value = (count($value) > 1 && $value[1] != "") ? $value[1] : $value[0];
+            $data[$propertyName] = $value;
         }else{
             if($value === null && !$property->isNullable()){
                 throw new DBManagerException("La valeur pour la propriété $propertyName ne peut être nulle");

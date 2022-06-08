@@ -29,7 +29,7 @@
 			<div class="element-content">
 				<div class="text">
 					<h3 class="badge">
-					<?= $publicite["contacts"] ?>
+						<i>Contact :</i> <?= $publicite["contacts"] ?>
 						
 						
 					</h3>

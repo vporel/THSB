@@ -32,9 +32,6 @@
 					<p>
 						<?= nl2br($annonce["description"]) ?>
 					</p>
-					<h3>
-					    <?= nl2br($annonce["type"]) ?>
-				    </h3>
 				</div>
 				<?php if($annonce["image"] != null) { ?>
 					<div class="images">

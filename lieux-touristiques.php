@@ -40,10 +40,6 @@
 					<p>
 						<?= nl2br($lieu["description"]) ?>
 					</p>
-					<h3>
-						<?= nl2br($lieu["adresse"]) ?>
-						
-					</h3>
 				</div>
 				<?php if($lieu["image"] != null) { ?>
 					<div class="images">
