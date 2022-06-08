@@ -32,14 +32,12 @@
 					<p>
 						<?= nl2br($annonce["description"]) ?>
 					</p>
-					<h3>
-					    <?= nl2br($annonce["type"]) ?>
-				    </h3>
 				</div>
-				<div class="images">
-					<img class="element-image" src="assets/images/annonces/<?= $annonce["image"] ?>" alt="Erreur de chargement de l'image"/>
-				</div>
-				
+				<?php if($annonce["image"] != null) { ?>
+					<div class="images">
+						<img class="element-image" src="assets/images/annonces/<?= $annonce["image"] ?>" alt="Erreur de chargement de l'image"/>
+					</div>
+				<?php } ?>
 			</div>
 		</section>
 	<?php } ?>

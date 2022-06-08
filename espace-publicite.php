@@ -29,7 +29,7 @@
 			<div class="element-content">
 				<div class="text">
 					<h3 class="badge">
-					<?= $publicite["contacts"] ?>
+						<i>Contact :</i> <?= $publicite["contacts"] ?>
 						
 						
 					</h3>
@@ -38,10 +38,11 @@
 					</p>
 				
 				</div>
-				<div class="images">
-					<img class="element-image" src="assets/images/publicites/<?= $publicite["image"] ?>" alt="Erreur de chargement de l'image"/>
-				</div>
-				
+				<?php if($publicite["image"] != null) { ?>
+					<div class="images">
+						<img class="element-image" src="assets/images/publicites/<?= $publicite["image"] ?>" alt="Erreur de chargement de l'image"/>
+					</div>
+				<?php } ?>
 			</div>
 		</section>
 	<?php } ?>

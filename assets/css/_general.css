@@ -88,7 +88,7 @@ body{
 
 
 #navbar .nav-link{
-	margin: 0 10px;
+	margin: 0;
 	text-decoration: none;
 	color: inherit;
 	height: 100%;
@@ -270,6 +270,14 @@ aside img{
 	padding: 12px 12px 5px 12px;
 	border-radius: 50%;
 	color: white;
+}
+
+.element .btns, .btns-element{
+	display:flex;
+	justify-content: center;
+}
+.element .btns a, .btns-element a{
+	margin:5px;
 }
 
 .element .element-content{

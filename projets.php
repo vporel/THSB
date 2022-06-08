@@ -35,9 +35,11 @@
 						<?= nl2br($projet["description"]) ?>
 					</p>
 				</div>
-				<div class="images">
-					<img class="element-image" src="assets/images/projets/<?= $projet["image"] ?>" alt="Erreur de chargement de l'image"/>
-				</div>
+				<?php if($projet["image"] != null) { ?>
+					<div class="images">
+						<img class="element-image" src="assets/images/projets/<?= $projet["image"] ?>" alt="Erreur de chargement de l'image"/>
+					</div>
+				<?php } ?>
 			</div>
 		</section>
 	<?php } ?>

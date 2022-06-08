@@ -1,6 +1,4 @@
 <?php
-$_BDD = null;
-
 
 require_once __DIR__."/../classes/ElementSchema.php";
 require_once __DIR__."/../classes/FileUpload.php";
@@ -8,10 +6,10 @@ require_once __DIR__."/../classes/FileUploadException.php";
 require_once __DIR__."/../classes/DBManagerException.php";
 require_once __DIR__."/../model.php";
 
+$_BDD = null;
 function connectDB():?PDO
 {
     global $_BDD;
-    global $_MAIRIE;
     if($_BDD == null){
         try{
             /*
@@ -125,14 +123,16 @@ function save(string $elementType, array $data):?string
     $elementSchema = getElementSchema($elementType);
     $questionMarks = [];
     $values = [];
-    foreach($data as $value){
-        $questionMarks[] = "?";
-        $values[] = $value;
+    $propertiesNames = [];
+    foreach($data as $key => $value){
+        if(in_array($key, array_keys($elementSchema->getProperties()))){
+            $propertiesNames[] = $key;
+            $questionMarks[] = "?";
+            $values[] = $value;
+        }
     }
-    $propertiesNames = array_keys($elementSchema->getProperties());
     $query = "INSERT INTO ".$elementSchema->getTable()."(".implode(", ", $propertiesNames).") VALUES(".implode(", ",$questionMarks).")";
     
-
     $bdd = connectDB();
     $req = $bdd->prepare($query);
     $req->execute($values);
@@ -152,8 +152,10 @@ function update(string $elementType, int $idElement, array $data):bool
     $updates = [];
     $values = [];
     foreach($data as $propertyName => $value){
-        $updates[] = "$propertyName = ?";
-        $values[] = $value;
+        if(in_array($propertyName, array_keys($elementSchema->getProperties()))){
+            $updates[] = "$propertyName = ?";
+            $values[] = $value;
+        }
     }
     $query = "UPDATE ".$elementSchema->getTable()." SET ".implode(", ",$updates)." WHERE id = $idElement";
     $bdd = connectDB();
@@ -194,7 +196,7 @@ function createTable($bdd, ElementSchema $elementSchema)
     $query = "
         CREATE TABLE IF NOT EXISTS ".$elementSchema->getTable()."(
             id INTEGER PRIMARY KEY
-        "; // Sur sqlite, autoincrement est en un mot
+        ";
         
     $fieldsQueryParts = [];
     foreach($elementSchema->getProperties() as $property){

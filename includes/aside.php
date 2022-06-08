@@ -9,6 +9,9 @@
             <article>
                 <h4>
                     <?= $annonce["nom"] ?>
+                
+            </h4>
+            <div class="btns-element">
                 <?php if(isAdminConnected()){ ?>
 					<a href="admin/modifier.php?elementType=annonce&id=<?= $annonce["id"] ?>" class="d-block btn btn-admin-update">
                         <object data="assets/icons/edit.svg" class="icon"></object><em>Modifier</em>
@@ -16,7 +19,9 @@
 					<a href="admin/supprimer.php?elementType=annonce&id=<?= $annonce["id"] ?>" class="d-block btn btn-admin-delete">
                         <object data="assets/icons/trash.svg" class="icon"></object><em>Supprimer</em>
 					</a>
-				<?php } ?></h4>
+				<?php } ?>
+                </div>
+
                 <span style="display:block;text-align:right"><?= $annonce["date"] ?></span>
                 <h3 class="badge"><i>Type d'annonce : </i><?= $annonce["type"] ?></h3>
                 <p><?= nl2br($annonce["description"]) ?></p>
@@ -40,6 +45,9 @@
             <article>
                 <h4>
                     <?= $publicite["nom"] ?>
+                
+                </h4>
+                <div class="btns-element">
                     <?php if(isAdminConnected()){ ?>
                         <a href="admin/modifier.php?elementType=publicite&id=<?= $publicite["id"] ?>" class="d-block btn btn-admin-update">
                             <object data="assets/icons/edit.svg" class="icon"></object><em>Modifier</em>
@@ -48,7 +56,7 @@
                             <object data="assets/icons/trash.svg" class="icon"></object><em>Supprimer</em>
                         </a>
                     <?php } ?>
-                </h4>
+                </div>
                 <span style="display:block;text-align:right"><?= $publicite["date"] ?></span>
                 <h3 class="badge"><?= $publicite["contacts"] ?></h3>
                 <p><?= nl2br($publicite["description"]) ?></p>

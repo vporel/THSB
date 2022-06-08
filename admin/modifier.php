@@ -23,14 +23,20 @@
     }
     $form = generateForm($elementType, $element, "update");
     if(isset($_POST["form-submit"])){
-        try{
-            if(update($elementType, $idElement, parseFormData($elementType, true))){
-                $message = "Elément modifié avec succès";
-            }else{
-                $message = "Echec de la modification";
+        $nom = $_POST["nom"];
+        $elementExistant = findOneBy($elementType, ["nom"=>$nom]);
+        if($elementExistant === null || $element["nom"] == $nom){ // Si le nom n'existe pas ou s'il d'agit du nom de l'élément même
+            try{
+                if(update($elementType, $idElement, parseFormData($elementType, true))){
+                    $message = "Elément modifié avec succès";
+                }else{
+                    $message = "Echec de la modification";
+                }
+            }catch(DBManagerException $e){
+                $message = $e->getMessage();
             }
-        }catch(DBManagerException $e){
-            $message = $e->getMessage();
+        }else{
+            $message = "Un élément du nom '$nom' existe déjà";
         }
         $form = generateForm($elementType, $_POST, "update");
     }
