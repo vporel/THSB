@@ -27,7 +27,8 @@
 			</h2>
 			<div class="element-content">
 				<div class="text">
-				<h3 class="badge"><i> Type d'annonce:</i> <?=$annonce["type"] ?></h3>
+		<h3 class="badge"><i> Type d'annonce:</i> <?=$annonce["type"] ?></h3>
+
 
 					<p>
 						<?= nl2br($annonce["description"]) ?>

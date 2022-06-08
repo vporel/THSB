@@ -19,6 +19,13 @@
 					<a href="admin/supprimer.php?elementType=annonce&id=<?= $annonce["id"] ?>" class="d-block btn btn-admin-delete">
                         <object data="assets/icons/trash.svg" class="icon"></object><em>Supprimer</em>
 					</a>
+
+				<?php } ?></h4>
+                <span><?= $annonce["date"] ?></span>
+                <h3>
+					<?= $annonce["type"] ?>
+				</h3>
+
 				<?php } ?>
                 </div>
 
@@ -55,12 +62,24 @@
                             <object data="assets/icons/trash.svg" class="icon"></object><em>Supprimer</em>
                         </a>
                     <?php } ?>
+
+                </h4>
+                <span><?= $publicite["date"] ?></span>
+                <h3>
+				<?= $publicite["contacts"] ?>
+
+				</h3>
+                <p><?= nl2br($publicite["description"]) ?></p>
+                <img cl
+                ass="element-image" src="assets/images/publicites/<?= $publicite["image"] ?>" alt="Image"/>
+
                 </div>
                 <span style="display:block;text-align:right"><?= $publicite["date"] ?></span>
                 <h3 class="badge">Contacts : <?= $publicite["contacts"] ?></h3>
                 <p><?= nl2br($publicite["description"]) ?></p>
                   
                 <img class="element-image" src="assets/images/publicites/<?= $publicite["image"] ?>" alt="Image"/>
+
             </article>
         <?php } ?>
         <div class="see-more-layout">
