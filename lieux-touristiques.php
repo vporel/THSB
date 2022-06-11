@@ -32,10 +32,16 @@
 			</h2>
 			<div class="element-content">
 				<div class="text">
+				<h3 class="badge">
+					<i> Adresse:</i>
+					<?= $lieu["adresse"] ?>
+			
+			</h3>
 					<p>
-						<?= nl2br($lieu["description"]) ?>
-					</p>
+					<?= nl2br($lieu["description"]) ?>
+				    </p>
 				</div>
+
 				<?php if($lieu["image"] != null) { ?>
 					<div class="images">
 						<img class="element-image" src="assets/images/lieux-touristiques/<?= $lieu["image"] ?>" alt="Erreur de chargement de l'image"/>

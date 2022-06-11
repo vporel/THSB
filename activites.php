@@ -26,10 +26,15 @@
 				<?php } ?>
 			</h2>
 			<div class="element-content">
+
 				<div class="text">
+				<h3 class="badge">
+					<i> Personne en charge: </i> <?= $activite["personnesEnCharge"] ?>
+				</h3>
 					<p>
 						<?= nl2br(updateText($activite["description"])) ?>
 					</p>
+					
 				</div>
 				<?php if($activite["image"] != null) { ?>
 					<div class="images">

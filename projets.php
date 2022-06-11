@@ -27,11 +27,15 @@
 			</h2>
 			<div class="element-content">
 				<div class="text">
+				<h3 class="badge">
+					<i> Personne en charge: </i>
+					<?= $projet["personnesEnCharge"] ?>
+				</h3>
 					<p>
 						<?= nl2br($projet["description"]) ?>
 					</p>
 				</div>
-				<?php if($publicite["image"] != null) { ?>
+				<?php if($projet["image"] != null) { ?>
 					<div class="images">
 						<img class="element-image" src="assets/images/projets/<?= $projet["image"] ?>" alt="Erreur de chargement de l'image"/>
 					</div>
