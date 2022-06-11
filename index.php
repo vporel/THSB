@@ -41,6 +41,7 @@
 			<?= nl2br(updateText($_MAIRIE["historique"] ?? "")) ?>
 		</p>
 	</section>
+	<br>
 	<section id="conseil-municipal">
 		<h3 class="title"> 
 			Conseil Municipal
@@ -78,6 +79,7 @@
 			<div class="alert alert-warning">Aucun conseiller enregistré</div>
 		<?php } ?>
 	</section>
+	<br>
 	<section class="section"id="missions">
 		<h3 class="title">
 			 Missions de la mairie

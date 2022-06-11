@@ -151,3 +151,28 @@ form input:focus{
     color:rgba(240, 100, 20, 1);
     font-weight: bold;
 }
+
+.custom-line{
+    display:flex;
+    justify-content:center;
+    align-items: center;
+}
+.custom-line hr{
+    position:absolute;
+}
+.custom-line .line-1{
+    border:2.8px solid var(--couleur-primaire);
+    opacity:1;
+    width:10%;
+    z-index:1;
+}
+.custom-line .line-2{
+    border:1.9px solid var(--couleur-primaire);
+    opacity:.8;
+    width:20%;
+}
+.custom-line .line-3{
+    border:1.4px solid var(--couleur-primaire);
+    opacity:.5;
+    width:40%;
+}

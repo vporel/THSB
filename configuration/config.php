@@ -80,7 +80,7 @@
      * Valeurs des clés pour le thème par défaut
      */
     $_THEME_DEFAUT = [
-        "numero" => 1, 
+        "numero" => 5, 
         "couleur-site" => "#0364be", 
         "couleur-admin" => "#2e3436",
         "dispositions" => [
@@ -95,4 +95,4 @@
 
     $_THEME = array_merge($_THEME_DEFAUT, $_THEME);
 
-    $_NB_THEMES = 4;
+    $_NB_THEMES = 5;
