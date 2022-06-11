@@ -19,8 +19,8 @@
     </div>
     <center style="margin-top:15px;"><strong><i>
         Pour vous connecter en tant qu'administrateur et modifier le site, 
-        entrez l'adresse /admin (après le nom du dossier du projet)<br>
-        ex: localhost/THSB/admin
+        entrez l'adresse /admin (après le nom du dossier du CMS)<br>
+        ex: localhost/[chemin_dossier]/admin
     </i></strong></center>
 </form>
 

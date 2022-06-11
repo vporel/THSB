@@ -9,6 +9,7 @@
         "modifier-info-mairie.php?infoType=missions",
     ];
     if(isset($_GET["prev"])){//Rentre d'une étape .... prev = previous = précédent
+        
         if($_INSTALLATION["etape"] == 3){
             $niveauEtape3 = $_SESSION["installation-niveau-etape-3"] ?? 0;
 
@@ -21,7 +22,8 @@
                 $_SESSION["installation-niveau-etape-3"] = $niveauEtape3-1;
         }elseif($_INSTALLATION["etape"] == 4){
             $_INSTALLATION["etape"] = 3;
-            $_SESSION["installation-niveau-etape-3"] = $_SESSION["mode"] == 1 ? 0 : count($_LIENS_ETAPE_3) - 1;
+            
+            $_SESSION["installation-niveau-etape-3"] = $_INSTALLATION["mode"] == 1 ? 0 : count($_LIENS_ETAPE_3) - 1;
         }elseif($_INSTALLATION["etape"] > 1){
             $_INSTALLATION["etape"]--;
             file_put_contents(FICHIER_CONFIG_INSTALLATION, json_encode($_INSTALLATION));
