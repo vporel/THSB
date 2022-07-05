@@ -80,9 +80,9 @@
      * Valeurs des clés pour le thème par défaut
      */
     $_THEME_DEFAUT = [
-        "numero" => 5, 
-        "couleur-site" => "#0364be", 
-        "couleur-admin" => "#2e3436",
+        "numero" => 3, 
+        "couleur-site" => "#204a87", 
+        "couleur-admin" => "#000000",
         "dispositions" => [
             1 => 1,
             2 => 1,

@@ -8,7 +8,7 @@
  */
 function connectAdmin($id)
 {
-    $_SESSION["connected-admin-id"] = $id;
+    $_SESSION["connected-admin-ionnected-admin-id"] = $id;
 }
 
 /**

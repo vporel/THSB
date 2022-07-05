@@ -14,7 +14,7 @@
     transition: all .2s ease;
 }
 .conseiller:hover{
-    transform: scale(1.01);
+    
 }
 .conseiller .images{
     order: 1;
@@ -29,13 +29,14 @@
 }
 .conseiller .images img:hover{
     box-shadow: none!important;
-    transform: none!important;
+    transform: scale(1.3);
 }
 .conseiller .title{
     text-align: center;
     margin: 5px 0;
     order: 2;
     color:black;
+    font-size:20px;
 }
 #conseillers .btn{
     display: block;

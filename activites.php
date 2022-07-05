@@ -4,7 +4,12 @@
 	$activites = findAll("activite");
 ?>
 <?php $_TITLE = "Activités | ".$_MAIRIE["nom"]; ?>
-
+<?php ob_start(); ?>
+	<div  id="brand-title">
+		<h3>Nos activités</h3>
+		<?php include "components/_custom-line.php"; ?>
+	</div>
+<?php $_AFTER_HEADER = ob_get_clean(); ?>
 <?php ob_start(); ?>
 <?php if(isAdminConnected()){ ?>
 	<a href="admin/ajouter.php?elementType=activite" class="d-block btn btn-admin-add" style="margin:10px 0;">

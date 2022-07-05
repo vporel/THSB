@@ -1,5 +1,47 @@
+@font-face {
+    font-family: 'Century Gothic';
+    font-style: normal;
+    font-weight: normal bold;
+    font-display: block;
+    src: url("./fonts/century-gothic/CenturyGothic.ttf") format("truetype"); 
+}
+
+@font-face {
+    font-family: 'Century Gothic Bold';
+    font-style: normal;
+    font-weight: normal bold;
+    font-display: block;
+    src: url("./fonts/century-gothic/gothicb.ttf") format("truetype"); 
+}
+
+@font-face {
+    font-family: 'Godfeem';
+    font-style: normal;
+    font-weight: normal bold;
+    font-display: block;
+    src: url("./fonts/godfeem/Godfeem.ttf") format("truetype"); 
+}
+
+@font-face {
+    font-family: 'Mayeka';
+    font-style: normal;
+    font-weight: normal bold;
+    font-display: block;
+    src: url("./fonts/mayeka/Mayeka Regular Demo.otf") format("truetype"); 
+}
+
+@font-face {
+    font-family: 'Kitahara Script';
+    font-style: normal;
+    font-weight: normal bold;
+    font-display: block;
+    src: url("./fonts/kitahara-script/KitaharaScript.otf") format("truetype"); 
+}
 :root{
-    --couleur-primaire:rgb(3, 100, 190);
-    --couleur-primaire-claire:rgb(4, 130, 200);
-    --couleur-secondaire:rgb(255, 166, 0);
+    --couleur-texte:rgb(50, 50, 50);
+
+    --font:"century gothic";
+    --font-bold:"century gothic Bold";
+    --font-extra:"Kitahara Script";
+    --font-titre:"mayeka";
 }

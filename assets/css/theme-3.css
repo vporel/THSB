@@ -4,15 +4,18 @@
 /* Section dans le header affichant le nom de la mairie*/
 #before-nav{
 	height: 275px;
-	background:var(--couleur-primaire);
 }
 /* Titre dans le header (nom de la mairie)  */
 #before-nav h1{ 
 	text-align: center;
+	font-size: 50px;
 }
 #navbar{
 	position: fixed;
 	box-shadow:none;
+}
+#before-nav #nb-visiteurs, #before-nav.accueil #nb-visiteurs{
+	top:55px;
 }
 
 #navbar #navbar-content{
@@ -29,7 +32,9 @@
 	box-shadow: 0 -50px 0 var(--couleur-primaire) inset;
 }
 aside h2{
-	background: var(--couleur-primaire);
-	padding: 5px;
-	color: white;
+	box-shadow:5px 0 0 var(--couleur-primaire) inset;
+}
+aside>section:hover h2{
+	box-shadow:375px 0 0 var(--couleur-primaire) inset;
+	color:white;
 }

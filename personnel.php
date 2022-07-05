@@ -4,7 +4,12 @@
 	$personnels = findAll("personnel");
 ?>
 <?php $_TITLE = "Personnel | ".$_MAIRIE["nom"]; ?>
-
+<?php ob_start(); ?>
+	<div  id="brand-title">
+		<h3>Personnel de la mairie</h3>
+		<?php include "components/_custom-line.php"; ?>
+	</div>
+<?php $_AFTER_HEADER = ob_get_clean(); ?>
 <?php ob_start(); ?>
 <?php if(isAdminConnected()){ ?>
 	<a href="admin/ajouter.php?elementType=personnel" class="d-block btn btn-admin-add" style="margin:10px 0;">
@@ -21,7 +26,7 @@
 		display: flex;
 		margin: 10px 5px;
 		flex-direction: column;
-		width: 47%;
+		width: 31%;
 		box-shadow: 0 0 2px gray;
 		transition: all .2s ease;
 		padding:5px;

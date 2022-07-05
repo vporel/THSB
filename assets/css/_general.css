@@ -1,12 +1,53 @@
+@import "./_variables.css";
 @import "./_pages-elements.css";
 @import "./_admin-elements.css";
+@import "./_animations.css";
 
-
+#modifier-info-mairie-box{
+	position:fixed;
+	width:70%;
+	height:80%;
+	top:10%;
+	left:15%;
+	background:white;
+	border-radius:10px;
+	box-shadow: 0 0 3px gray;
+	z-index:50;
+	overflow-x:hidden;
+	overflow-y:auto;
+	visibility:hidden;
+	transition: all .3s ease;
+}
+#modifier-info-mairie-box h2{
+	background:var(--couleur-primaire);
+	padding:10px;
+	margin:0;
+	color:white;
+	font-family: var(--font-bold);
+}
+#modifier-info-mairie-box h2 .icon{
+	float:right;
+	width:25px;
+	transition:all .2s ease;
+	cursor:pointer;
+}
+#modifier-info-mairie-box h2 .icon:hover{
+	filter:invert(100%);
+	transform:scale(1.2);
+}
+#modifier-info-mairie-box h3{
+	text-align:center;
+	color:var(--couleur-primaire);
+	font-family: var(--font-bold);
+}
+#modifier-info-mairie-box textarea{
+	height:350px;
+}
 body{
-	font-family: sans-serif;
+	font-family: var(--font);
 	padding: 0;
 	margin: 0;
-	color: rgb(50,50,50);
+	color: var(--couleur-texte);
 }
 
 #before-nav{
@@ -16,51 +57,63 @@ body{
     overflow: hidden;
 	display: flex;
 	align-items: center;
-	background:linear-gradient(var(--couleur-primaire), white);
+	background-image:var(--image-fond);
+	background-size:cover;
 }
 #before-nav.accueil{
-	height: 250px;
+	height: 530px;
 }
 
 #before-nav h1{
 	color: white;
-	font-size: 30px;
+	font-size: 40px;
 	text-align:left;
-    text-indent:20px;
+    text-indent:50px;
 	text-shadow: 1px 1px 2px black;
 	z-index: 5;
+	font-family: var(--font-bold);
     width:100%;
 }
 
 #before-nav.accueil h1{
-	font-size: 50px;
+	font-size: 60px;
 	text-align:center;
+	animation:zoom-in .5s forwards;
 }
 
 
 #before-nav #nb-visiteurs{
 	position:absolute;
-	right:10px;
-	top:0;
-	height:100%;
+	right:15px;
+	padding:0 5px;
+	top:5px;
+	height:70px;
 	display:flex;
 	width:150px;
 	align-items: center;
 	justify-content: center;
 	flex-direction: row;
 	text-align: center;
-	color:rgb(255, 255, 255);
+	color:var(--couleur-primaire);
 	animation: nbVisiteurs 1s ease forwards;
+	background:white;
+	border-radius:10px;
+	box-shadow:1px 1px 3px gray;
+}
+#before-nav.accueil #nb-visiteurs{
+	top:10px;
+	height:100px;
+	width:150px;
 }
 @keyframes nbVisiteurs {
     from{right:-170px}
-    top{right:10px}
+    top{right:15px}
 }
 #before-nav #nb-visiteurs span{
 	font-size:20px;
-	border:2px solid white;
+	border:2px solid var(--couleur-primaire);
 	border-radius:50%;
-	padding:5px 10px;
+	padding:5px 13px;
 	font-weight:bold;
 }
 #before-nav.accueil #nb-visiteurs{
@@ -104,6 +157,29 @@ body{
 #navbar .nav-link:hover, #navbar .nav-link.active{
 	color: var(--couleur-primaire);
 	box-shadow: 0 -3px 0 var(--couleur-primaire) inset;
+}
+
+#brand-title{
+	color: black;
+	padding-bottom:20px;
+	animation: zoom-in .6s forwards;
+}
+#brand-title h3{
+	padding:10px 0;text-align:center;
+	margin:15px 0;
+	font-size: 30px!important;
+	font-family:var(--font-bold);
+}
+@keyframes zoom-in {
+	0%{
+		transform:scale(0)
+	}
+	50%{
+		transform:scale(1.2);
+	}
+	100%{
+		transform:scale(1);
+	}
 }
 aside h2{
 	margin: 5px 0;
@@ -162,23 +238,17 @@ footer{
 }
 
 #content main{
-	/*animation: fadeIn 1s forwards;*/
 	width: 70%;
 	padding-top:10px;
+	animation: fadeIn .6s forwards;
 }
-@keyframes fadeIn{
-	from{
-		opacity: 0;
-	}
-	to{
-		opacity: 1;
-	}
+#content.aside-hidden main{
+	width:100%;
 }
-.title{
-	color: var(--couleur-primaire);
-	font-weight: bold;
+#content.aside-hidden aside{
+	width:0;
+	display:block; 
 }
-
 aside{
 	margin-top: 0px;
 	width: 28%;
@@ -267,9 +337,11 @@ aside img{
 	right: 10px;
 	bottom: 10px;
 	background: var(--couleur-primaire);
-	padding: 12px 12px 5px 12px;
+	padding: 9px 13px 5px 13px;
 	border-radius: 50%;
 	color: white;
+	font-family: var(--font-bold);
+	font-size:20px;
 }
 
 .element .btns, .btns-element{

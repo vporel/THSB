@@ -5,39 +5,23 @@
 	<link rel="stylesheet"href="assets/css/accueil.css"?>
 <?php $_STYLES = ob_get_clean(); ?>
 <?php ob_start(); ?>
-	<style type="text/css">
-		#image-mairie{
-			width:100%;
-		}
-	</style>
-	<section class="section">
-		<?php if($_MAIRIE["imagePresente"]){ ?>
-			<img src="assets/images/<?= $_MAIRIE["image"]; ?>" alt="" id="image-mairie">
-		<?php }else{ ?>
-			<?php if(isAdminConnected()){ ?>
-				Aucune image de la mairie enregistrée
-			<?php } ?>
-		<?php } ?>
-		<?php if(isAdminConnected()){ ?>
-			<a href="admin/modifier-info-mairie.php?infoType=image" class="d-block btn btn-admin-update">
-				<object data="assets/icons/edit.svg" class="icon"></object><em>Modifier l'image</em>
-			</a>
-		<?php } ?>
-		<h3 style="padding:10px 0;text-align:center;color: black;font-size: 30px;"> 
-			BIENVENUE SUR LA MAIRIE DE <?php echo $_MAIRIE["nom"] ?? "" ?>
-		</h3>
-	</section>
+	<div  id="brand-title">
+		<h3>BIENVENUE SUR LA MAIRIE DE <?php echo $_MAIRIE["nom"] ?? "" ?></h3>
+		<?php include "components/_custom-line.php"; ?>
+	</div>
+<?php $_AFTER_HEADER = ob_get_clean(); ?>
+<?php ob_start(); ?>
 	<section id="historique">
 		<h3 class="title">
 			Historique
 			<?php if(isAdminConnected()){ ?>
-				<a href="admin/modifier-info-mairie.php?infoType=historique" class="d-inline-block btn btn-admin-update">
+				<a onclick="modifierInfoMairie('historique', '#historique-text');" class="d-inline-block btn btn-admin-update">
 					<object data="assets/icons/edit.svg" class="icon"></object><em>Modifier</em>
 				</a>
 				
 			<?php } ?>
 		</h3>
-		<p>
+		<p id="historique-text">
 			<?= nl2br(updateText($_MAIRIE["historique"] ?? "")) ?>
 		</p>
 	</section>
@@ -84,14 +68,14 @@
 		<h3 class="title">
 			 Missions de la mairie
 			 <?php if(isAdminConnected()){ ?>
-				<a href="admin/modifier-info-mairie.php?infoType=missions" class="d-inline-block btn btn-admin-update">
+				<a onclick="modifierInfoMairie('missions', '#missions-text');" class="d-inline-block btn btn-admin-update">
 					<object data="assets/icons/edit.svg" class="icon"></object><em>Modifier</em>
 				</a>
 				
 			<?php } ?>
 
 		</h3>
-		<p>
+		<p id="missions-text">
 			<?= nl2br(updateText($_MAIRIE["missions"] ?? "")) ?>
 		</p>
 	</section>

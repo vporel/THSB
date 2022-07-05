@@ -33,18 +33,40 @@
             header("Location:../index.php#$infoType");
         exit();
     }
+    
+    if(in_array($infoType, ["nom", "contacts"])){ 
+        $inputCode = "<input type='text' name='info-valeur' id='info-valeur' value='$infoValeur'/>";
+    }elseif($infoType == "image"){
+        $inputCode = "<center><input type='file' name='info-valeur' id='info-valeur' />";
+        $inputCode .= ($infoValeur != "") ? "<font>Actuel : $infoValeur</font>" : "";
+        $inputCode .= "</center>";         
+    }else{
+        $inputCode = "<textarea name='info-valeur' id='info-valeur'>$infoValeur</textarea>";
+    }
+    if(isset($_GET["AJAX_POST"])){
+        //Doit être utilisé pour le nom, l'historique et les missions
+        $_MAIRIE[$infoType] = $_POST["info-valeur"];
+        file_put_contents(FICHIER_CONFIG_MAIRIE, json_encode($_MAIRIE));
+        if($infoType == "nom")
+            echo $_MAIRIE[$infoType] ?? "";
+        else
+            echo nl2br(updateText($_MAIRIE[$infoType] ?? ""));
+        exit();
+    }
+    if(isset($_GET["GET_INPUT_CODE"])){
+        echo $inputCode;
+        exit();
+    }
 ?>
+
 <?php $_TITLE = "Modification ".$infoType." | THBS"; ?>
 <?php $_PAGE_TITLE = "Mairie de ".($_MAIRIE["nom"] ?? "") ?>
 <?php ob_start(); ?>
     <style>
-        label[for="info-valeur"]{text-align:center;font-size:22px!important;}
-        textarea{height:350px!important;}
-        .theme-image{
-            max-height:200px;
-        }
+        #modifier-info-mairie-form label[for="info-valeur"]{text-align:center;font-size:22px!important;}
+        #modifier-info-mairie-form textarea{height:350px!important;}
     </style>
-    <form method="post" enctype="multipart/form-data">
+    <form method="post" enctype="multipart/form-data" id="modifier-info-mairie-form">
         <input type="hidden" name="modifier-info-mairie">
         <span>
             <label for="info-valeur"><?= ucfirst($infoType) ?></label>

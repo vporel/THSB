@@ -1,10 +1,6 @@
 @import "./_general.css";
 
 
-
-#before-nav{
-	background:var(--couleur-primaire);
-}
 #before-nav h1{
 	margin-left: 50px;
 }

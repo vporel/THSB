@@ -1,24 +1,8 @@
 @import "./_general.css";
 
-/* Section dans le header affichant le nom de la mairie*/
-#before-nav{
-	background:url("../images/header-background.jpg");
-	background-size:cover;
-	background-position: 0 -200px;
-}
-
 #before-nav.accueil h1{
 	font-size: 50px;
 	text-align:left;
-}
-#before-nav #nb-visiteurs{
-	color:var(--couleur-primaire)
-}
-#before-nav #nb-visiteurs span{
-	border-color:var(--couleur-primaire)
-}
-#navbar{
-	
 }
 aside h2{
 	box-shadow:5px 0 0 var(--couleur-primaire) inset;

@@ -4,7 +4,12 @@
 	$lieux = findAll("lieuTouristique");
 ?>
 <?php $_TITLE = "Lieux touristiques | ".$_MAIRIE["nom"]; ?>
-
+<?php ob_start(); ?>
+	<div  id="brand-title">
+		<h3>Un peu de tourisme ?</h3>
+		<?php include "components/_custom-line.php"; ?>
+	</div>
+<?php $_AFTER_HEADER = ob_get_clean(); ?>
 <?php ob_start(); ?>
 <?php if(isAdminConnected()){ ?>
 	<a href="admin/ajouter.php?elementType=lieuTouristique" class="d-block btn btn-admin-add" style="margin:10px 0;">

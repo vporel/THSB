@@ -8,6 +8,20 @@
     margin:0 2.5px;
 }
 
+.bold, strong{
+    font-family: var(--font-bold);
+}
+
+.text-primary{
+    color:var(--couleur-primaire)!important;
+}
+
+
+.title{
+	color: var(--couleur-primaire);
+	font-weight: bold;
+	font-size:30px;
+}
 /* Boutons */
 .btn em, button em{
     font-style: normal;
@@ -124,6 +138,7 @@ form input[type=password]{
     border-radius:5px;
     min-height:30px;
     font-family: sans-serif;
+    color:var(--couleur-texte);
 }
 
 form textarea{
@@ -137,7 +152,7 @@ form select:focus,
 form input:hover,
 form input:focus{
     border-color:var(--couleur-primaire);
-    color : var(--couleur-primaire);
+    color : black;
 }
 
 /* Alertes */

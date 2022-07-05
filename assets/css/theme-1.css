@@ -1,5 +1,9 @@
 @import "./_general.css";
 
+
+#before-nav{
+	background:linear-gradient(var(--couleur-primaire), white)
+}
 aside h2{
 	box-shadow:5px 0 0 var(--couleur-primaire) inset;
 }

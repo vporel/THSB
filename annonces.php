@@ -4,7 +4,12 @@
 	$annonces = findAll("annonce");
 ?>
 <?php $_TITLE = "Annonces | ".$_MAIRIE["nom"]; ?>
-
+<?php ob_start(); ?>
+	<div id="brand-title">
+		<h3>A savoir - <span class="text-primary">Annonces</span></h3>
+		<?php include "components/_custom-line.php"; ?>
+	</div>
+<?php $_AFTER_HEADER = ob_get_clean(); ?>
 <?php ob_start(); ?>
 <?php if(isAdminConnected()){ ?>
 	<a href="admin/ajouter.php?elementType=annonce" class="d-block btn btn-admin-add" style="margin:10px 0;">

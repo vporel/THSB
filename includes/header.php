@@ -13,11 +13,14 @@
 
 <div id="before-nav" class="<?= $nomPage=="index.php" ? "accueil" : "" ?>">
     <h1>
-        <?= "Mairie de ".($_MAIRIE["nom"] ?? ""); ?>
+        <font id="nom-mairie"><?= "Mairie de ".($_MAIRIE["nom"] ?? ""); ?></font>
         <?php if(isAdminConnected()){ ?>
-            <a href="admin/modifier-info-mairie.php?infoType=nom" class="btn btn-admin-update">
+            <a onclick="modifierInfoMairie('nom', '#nom-mairie');"class="btn btn-admin-update">
                 Modifier le nom
             </a>
+            <a href="admin/modifier-info-mairie.php?infoType=image" class="btn btn-admin-update" style="margin-left:3px;">
+				Modifier l'image
+			</a>
         <?php } ?>
     </h1>
     <div id="nb-visiteurs">
@@ -37,7 +40,7 @@
             } 
         ?>
         <?php if(isAdminConnected()){ ?>
-            <a href="admin/choix-fonctionnalites.php" class="pos-absolute admin-element btn btn-admin-update" style="right:5px;">
+            <a href="admin/choix-fonctionnalites.php" class="pos-absolute admin-element btn btn-admin-update" style="right:15px;">
                 <object data="assets/icons/edit.svg" class="icon"></object><em>Choisir les pages</em>
             </a>
         <?php } ?>

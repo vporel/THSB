@@ -17,6 +17,7 @@
 			--couleur-primaire:<?= $_THEME["couleur-site"]; ?>;
 			--couleur-primaire-claire:<?= ($_THEME["couleur-site"] ?? $_THEME_DEFAUT["couleur-site"]). "dd"; ?>;
             --couleur-primaire-claire-2:<?= ($_THEME["couleur-site"] ?? $_THEME_DEFAUT["couleur-site"]). "bb"; ?>;
+			--image-fond:url("../images/<?= $_MAIRIE["image"] ?? "header-background.jpg" ?>");
 		}
 	</style>
 	<link rel="stylesheet" type="text/css" href="assets/css/theme-<?= $numeroTheme ?>.css"/>
@@ -24,6 +25,16 @@
 	<?= $_STYLES ?? "" ?>
 </head>
 <body>
+	<div id="modifier-info-mairie-box">
+		<h2>Modification de la mairie<object data="assets/icons/times.svg" class="icon" onclick="alert()"></object></h2>
+		<h3 id="info">Nom</h3>
+		<form id="form">
+			
+		</form>
+		<div style="text-align:right;padding:5px;">
+			<button class="btn btn-primary" onclick="enregistrerInfoMairie()">Enregistrer</button>
+		</div>
+	</div>
 	<!-- Entete -->
 	<?php include "includes/header.php"; ?>
 	<div id="popup-image">
@@ -32,7 +43,12 @@
 			<img class="image"/>
 		</div>
 	</div>
-	<section id="content">
+	<?= $_AFTER_HEADER ?? "" ?>
+	<?php
+		$annoncesPresentes = in_array(4, $_MAIRIE["fonctionnalites"]);
+		$publicitesPresentes = in_array(6, $_MAIRIE["fonctionnalites"]);
+	?>
+	<section id="content" class="<?= (!$annoncesPresentes and !$publicitesPresentes) ? "aside-hidden" : "" ?>">
 		<main>
 			<?= $_CONTENT ?>
 		</main>
